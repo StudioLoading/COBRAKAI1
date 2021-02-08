@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/stagebonus.ogg-b444065437cfaa7bc033137121b68429.oggstr"
+
+[deps]
+
+source_file="res://sound/stagebonus.ogg"
+dest_files=[ "res://.import/stagebonus.ogg-b444065437cfaa7bc033137121b68429.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

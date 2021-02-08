@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://stage_father_boss.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/stage6_boss.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3.07288, 12.3726 )
+
+[node name="stage" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="ColorRect2" type="ColorRect" parent="." index="0"]
+margin_left = -243.0
+margin_top = -195.0
+margin_right = 756.0
+margin_bottom = 526.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="p06" type="Position2D" parent="env" index="3"]
+position = Vector2( 312, 124 )
+
+[node name="Area2D" type="Area2D" parent="env/p06" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env/p06/Area2D" index="0"]
+position = Vector2( 0, 9 )
+shape = SubResource( 1 )
+[connection signal="body_entered" from="env/p06/Area2D" to="." method="_on_Area2D_body_entered"]

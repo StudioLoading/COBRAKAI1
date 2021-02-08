@@ -1,0 +1,76 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/enemy_aisha.gd" type="Script" id=2]
+[ext_resource path="res://asset/aisha/L05,R1,C1,kick0,hidden,normal,255.png" type="Texture" id=3]
+[ext_resource path="res://asset/aisha/L11,R1,C1,dead3,hidden,normal,255.png" type="Texture" id=4]
+[ext_resource path="res://asset/aisha/L13,R1,C1,dead1,hidden,normal,255.png" type="Texture" id=5]
+[ext_resource path="res://asset/aisha/L07,R1,C1,stand,hidden,normal,255.png" type="Texture" id=6]
+[ext_resource path="res://asset/aisha/L08,R1,C1,walk1,hidden,normal,255.png" type="Texture" id=7]
+[ext_resource path="res://asset/aisha/L12,R1,C1,dead2,hidden,normal,255.png" type="Texture" id=8]
+[ext_resource path="res://asset/aisha/L06,R1,C1,kick1,hidden,normal,255.png" type="Texture" id=9]
+[ext_resource path="res://asset/aisha/L01,R1,C1,guard,visible,normal,255.png" type="Texture" id=10]
+[ext_resource path="res://asset/aisha/L10,R1,C1,hit,hidden,normal,255.png" type="Texture" id=11]
+[ext_resource path="res://asset/aisha/L04,R1,C1,jab,hidden,normal,255.png" type="Texture" id=12]
+[ext_resource path="res://asset/aisha/L09,R1,C1,walk2,hidden,normal,255.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "hit",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": false,
+"name": "hit_back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "kick",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "jab",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": false,
+"name": "stand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": false,
+"name": "guard",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 6.99423
+
+[node name="enemy" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" parent="." index="0"]
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grab_player" index="1"]
+position = Vector2( 6, 8 )
+shape = SubResource( 2 )

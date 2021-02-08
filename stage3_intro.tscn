@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/stage3_intro.gd" type="Script" id=1]
+[ext_resource path="res://asset/stage2/bg.png" type="Texture" id=2]
+[ext_resource path="res://gui_dialog.tscn" type="PackedScene" id=3]
+[ext_resource path="res://animations/Johnny_gi.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://animations/Miguel.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://asset/stage2/flessioni.png" type="Texture" id=6]
+[ext_resource path="res://asset/stage2/fantoccio_1.png" type="Texture" id=7]
+[ext_resource path="res://asset/stage2/fantoccio_linea.png" type="Texture" id=8]
+
+[node name="intro" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="bg" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="cl" parent="." instance=ExtResource( 3 )]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 256, 128 )
+current = true
+
+[node name="johnny" type="AnimatedSprite" parent="."]
+position = Vector2( 194.382, 157.57 )
+frames = ExtResource( 4 )
+animation = "guard"
+flip_h = true
+
+[node name="miguel" type="AnimatedSprite" parent="."]
+position = Vector2( 72.9759, 242.147 )
+frames = ExtResource( 5 )
+animation = "stand"
+
+[node name="flex" type="Sprite" parent="."]
+position = Vector2( 386, 125 )
+texture = ExtResource( 6 )
+
+[node name="fantoccio" type="Sprite" parent="."]
+position = Vector2( 412, 148 )
+texture = ExtResource( 7 )
+
+[node name="l" type="Sprite" parent="fantoccio"]
+position = Vector2( -12, 17 )
+texture = ExtResource( 8 )
+
+[node name="fantoccio2" type="Sprite" parent="."]
+position = Vector2( 402, 198 )
+texture = ExtResource( 7 )
+
+[node name="l" type="Sprite" parent="fantoccio2"]
+position = Vector2( -12, 17 )
+texture = ExtResource( 8 )
+
+[node name="miguel_init_pos" type="Position2D" parent="."]
+position = Vector2( 72, 272 )
+
+[node name="miguel_final_pos" type="Position2D" parent="."]
+position = Vector2( 162, 158 )
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

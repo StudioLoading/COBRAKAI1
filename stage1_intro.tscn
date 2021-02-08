@@ -1,0 +1,113 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://scripts/stage1_intro.gd" type="Script" id=1]
+[ext_resource path="res://asset/stage1/city_at_night.png" type="Texture" id=2]
+[ext_resource path="res://asset/stage1/Stage_01_extended_1038X256.png" type="Texture" id=3]
+[ext_resource path="res://asset/stage1/car.png" type="Texture" id=4]
+[ext_resource path="res://animations/miguel_stage1.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://animations/enemy_ky.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://animations/enemy3.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://animations/enemy.tres" type="SpriteFrames" id=8]
+[ext_resource path="res://animations/homeless_stage1.tres" type="SpriteFrames" id=9]
+[ext_resource path="res://animations/rj.tres" type="SpriteFrames" id=10]
+[ext_resource path="res://animations/bri.tres" type="SpriteFrames" id=11]
+[ext_resource path="res://animations/peter.tres" type="SpriteFrames" id=12]
+[ext_resource path="res://animations/philippe.tres" type="SpriteFrames" id=13]
+[ext_resource path="res://cat.tscn" type="PackedScene" id=14]
+[ext_resource path="res://gui_dialog.tscn" type="PackedScene" id=15]
+[ext_resource path="res://animations/Johnny.tres" type="SpriteFrames" id=16]
+[ext_resource path="res://sound/stage1.ogg" type="AudioStream" id=17]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -526, -11 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite" type="Sprite" parent="Sprite"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sprite" type="Sprite" parent="Sprite/Sprite"]
+position = Vector2( 165.125, 191.595 )
+texture = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
+[node name="rea" type="AnimatedSprite" parent="."]
+position = Vector2( 317.768, 178.449 )
+frames = ExtResource( 5 )
+animation = "init"
+playing = true
+
+[node name="ky" type="AnimatedSprite" parent="."]
+position = Vector2( 304.899, 181.25 )
+frames = ExtResource( 6 )
+animation = "stand"
+
+[node name="ciccione" type="AnimatedSprite" parent="."]
+position = Vector2( 350.222, 185.705 )
+frames = ExtResource( 7 )
+animation = "stand"
+flip_h = true
+
+[node name="altro" type="AnimatedSprite" parent="."]
+position = Vector2( 336.699, 179.158 )
+frames = ExtResource( 8 )
+animation = "stand"
+flip_h = true
+
+[node name="homeless" type="AnimatedSprite" parent="."]
+position = Vector2( 55.7169, 159.643 )
+frames = ExtResource( 9 )
+frame = 1
+playing = true
+
+[node name="rj" type="AnimatedSprite" parent="."]
+position = Vector2( 241.111, 152.9 )
+frames = ExtResource( 10 )
+animation = "talk"
+frame = 1
+
+[node name="bri" type="AnimatedSprite" parent="."]
+position = Vector2( -202.392, 145.912 )
+frames = ExtResource( 11 )
+animation = "talk"
+frame = 4
+playing = true
+
+[node name="peter" type="AnimatedSprite" parent="."]
+position = Vector2( -183.392, 145.912 )
+frames = ExtResource( 12 )
+animation = "talk"
+frame = 1
+playing = true
+flip_h = true
+
+[node name="philippe" type="AnimatedSprite" parent="."]
+position = Vector2( 259.358, 155.006 )
+frames = ExtResource( 13 )
+animation = "talk"
+frame = 2
+playing = true
+flip_h = true
+
+[node name="cat" parent="." instance=ExtResource( 14 )]
+position = Vector2( 60, 177 )
+frame = 0
+
+[node name="cl" parent="." instance=ExtResource( 15 )]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="johnny" type="AnimatedSprite" parent="."]
+position = Vector2( -253.36, 167.646 )
+frames = ExtResource( 16 )
+animation = "guard"
+
+[node name="bg" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )

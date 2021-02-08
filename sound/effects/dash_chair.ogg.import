@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/dash_chair.ogg-3f4d5de9300bec54677499c4faf6365e.oggstr"
+
+[deps]
+
+source_file="res://sound/effects/dash_chair.ogg"
+dest_files=[ "res://.import/dash_chair.ogg-3f4d5de9300bec54677499c4faf6365e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

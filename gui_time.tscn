@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/gui_time.gd" type="Script" id=1]
+[ext_resource path="res://asset/GUI/time.label.png" type="Texture" id=2]
+[ext_resource path="res://font.gui.tres" type="DynamicFont" id=3]
+
+[node name="time" type="VBoxContainer" groups=[
+"pausable",
+]]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -15.0
+margin_top = 6.0
+margin_right = 29.0
+margin_bottom = 23.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="time" type="TextureRect" parent="."]
+margin_right = 44.0
+margin_bottom = 5.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="nn" type="Label" parent="."]
+margin_top = 9.0
+margin_right = 44.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "99"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stage_timer" type="Timer" parent="."]
+wait_time = 1.8
+
+[node name="efx" type="AudioStreamPlayer" parent="."]
+
+[node name="blink" type="Timer" parent="."]
+wait_time = 0.35
+[connection signal="timeout" from="stage_timer" to="." method="_on_stage_timer_timeout"]
+[connection signal="timeout" from="blink" to="." method="_on_blink_timeout"]

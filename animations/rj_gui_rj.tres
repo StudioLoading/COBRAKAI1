@@ -1,0 +1,12 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=2]
+
+[ext_resource path="res://asset/GUI/real/RJ_speak.png" type="Texture" id=2]
+[ext_resource path="res://asset/GUI/real/RJ_mute.png" type="Texture" id=3]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]

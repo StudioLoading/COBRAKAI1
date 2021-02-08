@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://asset/GUI/real/peter_mute.png" type="Texture" id=1]
+[ext_resource path="res://animations/intro_gui_hawk.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://font.gui.tres" type="DynamicFont" id=3]
+[ext_resource path="res://asset/GUI/dialog/square.png" type="Texture" id=4]
+[ext_resource path="res://scripts/gui_dialog.gd" type="Script" id=5]
+
+[node name="cl" type="CanvasLayer"]
+script = ExtResource( 5 )
+
+[node name="s" type="TextureRect" parent="."]
+anchor_left = 0.223633
+anchor_top = 0.078125
+anchor_right = 0.776367
+anchor_bottom = 0.480469
+margin_left = 0.5
+margin_right = -26.5
+margin_bottom = -7.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="m" type="MarginContainer" parent="s"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 1.00026, 1 )
+custom_constants/margin_right = 20
+custom_constants/margin_top = 10
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hb" type="HBoxContainer" parent="s/m"]
+margin_left = 20.0
+margin_top = 10.0
+margin_right = 236.0
+margin_bottom = 76.0
+custom_constants/separation = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ccf" type="CenterContainer" parent="s/m/hb"]
+margin_right = 32.0
+margin_bottom = 66.0
+
+[node name="face" type="TextureRect" parent="s/m/hb/ccf"]
+margin_top = 14.0
+margin_right = 32.0
+margin_bottom = 52.0
+texture = ExtResource( 1 )
+stretch_mode = 5
+
+[node name="speak" type="AnimatedSprite" parent="s/m/hb/ccf/face"]
+frames = ExtResource( 2 )
+animation = "talk"
+centered = false
+
+[node name="cct" type="CenterContainer" parent="s/m/hb"]
+margin_left = 36.0
+margin_right = 36.0
+margin_bottom = 66.0
+
+[node name="text" type="Label" parent="s/m/hb/cct"]
+margin_top = 27.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 3 )
+valign = 1

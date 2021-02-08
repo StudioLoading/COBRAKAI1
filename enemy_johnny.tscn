@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/enemy_johnny.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 12.25 )
+
+[node name="enemy" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grab_player" index="1"]
+position = Vector2( -4, 0 )
+shape = SubResource( 1 )

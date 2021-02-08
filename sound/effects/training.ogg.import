@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/training.ogg-5717f97017aacffa1bcc884d7155513f.oggstr"
+
+[deps]
+
+source_file="res://sound/effects/training.ogg"
+dest_files=[ "res://.import/training.ogg-5717f97017aacffa1bcc884d7155513f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

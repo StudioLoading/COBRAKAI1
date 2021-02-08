@@ -1,0 +1,212 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://asset/stage2/bg.png" type="Texture" id=1]
+[ext_resource path="res://stage_father.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/stage5.gd" type="Script" id=3]
+[ext_resource path="res://animations/Johnny_gi.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://animations/stage5_dragon.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://asset/stage5/dragon_balls/L3,R1,C1,Livello 3,visible,normal,255.png" type="Texture" id=6]
+[ext_resource path="res://asset/stage5/dragon_balls/L5,R1,C1,Livello 5,visible,normal,255.png" type="Texture" id=7]
+[ext_resource path="res://asset/stage5/dragon_balls/L1,R1,C1,Sfondo,visible,normal,255.png" type="Texture" id=8]
+[ext_resource path="res://asset/stage5/dragon_balls/L6,R1,C1,Livello 6,visible,normal,255.png" type="Texture" id=9]
+[ext_resource path="res://asset/stage5/dragon_balls/L4,R1,C1,Livello 4,visible,normal,255.png" type="Texture" id=10]
+[ext_resource path="res://asset/stage5/dragon_balls/L2,R1,C1,Livello 2,visible,normal,255.png" type="Texture" id=11]
+[ext_resource path="res://asset/exit.png" type="Texture" id=12]
+[ext_resource path="res://asset/stage2/fantoccio_2.png" type="Texture" id=13]
+[ext_resource path="res://asset/stage2/fantoccio_1.png" type="Texture" id=14]
+[ext_resource path="res://asset/stage2/fantoccio_linea.png" type="Texture" id=15]
+[ext_resource path="res://asset/stage2/tavole.png" type="Texture" id=16]
+[ext_resource path="res://asset/stage2/basso.png" type="Texture" id=17]
+[ext_resource path="res://asset/stage5/left.png" type="Texture" id=18]
+[ext_resource path="res://asset/stage5/speeding_up.png" type="Texture" id=19]
+[ext_resource path="res://font.gui.tres" type="DynamicFont" id=20]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 22.2912, 103.492 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 448.705, 10 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 15.0495
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 11.8478
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "roll",
+"speed": 16.0
+} ]
+
+[node name="stage" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="env" type="Node2D" parent="." index="1"]
+
+[node name="ColorRect" type="ColorRect" parent="env" index="0"]
+margin_left = -212.0
+margin_top = -133.0
+margin_right = 780.0
+margin_bottom = 509.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="Sprite" parent="env" index="1"]
+position = Vector2( -0.5, 0 )
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="left" type="Sprite" parent="env/bg" index="0"]
+position = Vector2( 109, 75 )
+texture = ExtResource( 18 )
+
+[node name="right" type="Sprite" parent="env/bg" index="1"]
+position = Vector2( 399, 75 )
+texture = ExtResource( 19 )
+
+[node name="throws" type="Label" parent="env/bg/right" index="0"]
+visible = false
+margin_left = 6.0
+margin_top = -1.0
+margin_right = 22.0
+margin_bottom = 8.0
+custom_fonts/font = ExtResource( 20 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dodge" type="Label" parent="env/bg/right" index="1"]
+visible = false
+margin_left = -29.0
+margin_top = -1.0
+margin_right = -13.0
+margin_bottom = 8.0
+custom_fonts/font = ExtResource( 20 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left_wall" type="StaticBody2D" parent="env" index="2"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env/left_wall" index="0"]
+position = Vector2( 14.6956, 141.215 )
+rotation = 0.184074
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="env/left_wall" index="1"]
+position = Vector2( 67, 39 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="env/left_wall" index="2"]
+position = Vector2( 67, 170 )
+shape = SubResource( 2 )
+
+[node name="fantoccio" type="Sprite" parent="env" index="3"]
+position = Vector2( 350, 180 )
+texture = ExtResource( 14 )
+
+[node name="Sprite" type="Sprite" parent="env/fantoccio" index="0"]
+position = Vector2( -9.57489, 18.63 )
+texture = ExtResource( 15 )
+
+[node name="fantoccio2" type="Sprite" parent="env" index="4"]
+position = Vector2( 400, 100 )
+texture = ExtResource( 13 )
+
+[node name="Sprite2" type="Sprite" parent="env/fantoccio2" index="0"]
+position = Vector2( -10.4685, 18.4843 )
+texture = ExtResource( 15 )
+
+[node name="kicker" type="Sprite" parent="env" index="5"]
+position = Vector2( 503, 139 )
+texture = ExtResource( 16 )
+
+[node name="Sprite4" type="Sprite" parent="env/kicker" index="0"]
+position = Vector2( -8.51611, 19.9898 )
+texture = ExtResource( 15 )
+
+[node name="sweeper" type="Sprite" parent="env" index="6"]
+position = Vector2( 450, 200 )
+texture = ExtResource( 17 )
+
+[node name="Sprite3" type="Sprite" parent="env/sweeper" index="0"]
+position = Vector2( -15.0739, 9.32376 )
+texture = ExtResource( 15 )
+
+[node name="ball_bounce" type="StaticBody2D" parent="YSort/player" index="17"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/player/ball_bounce" index="0"]
+position = Vector2( 1, 6 )
+shape = SubResource( 3 )
+
+[node name="ball_hit" type="Area2D" parent="YSort/player" index="18"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/player/ball_hit" index="0"]
+position = Vector2( 4, 5 )
+shape = SubResource( 4 )
+
+[node name="spawn_player_stage" type="Position2D" parent="YSort" index="2"]
+position = Vector2( 272, 134 )
+
+[node name="Sprite" type="Sprite" parent="YSort/spawn_player_stage" index="0"]
+position = Vector2( 12, 19 )
+texture = ExtResource( 15 )
+
+[node name="sensei" type="AnimatedSprite" parent="YSort" index="3"]
+position = Vector2( 192, 113 )
+frames = ExtResource( 4 )
+animation = "stand"
+
+[node name="dragon" type="AnimatedSprite" parent="YSort" index="4"]
+position = Vector2( 444, 133 )
+frames = ExtResource( 5 )
+
+[node name="arrow" type="Sprite" parent="YSort/dragon" index="0"]
+position = Vector2( -11, -18 )
+texture = ExtResource( 12 )
+
+[node name="spawner_ball" type="Position2D" parent="YSort" index="5"]
+position = Vector2( 430, 135 )
+
+[node name="dragon_balls" type="AnimatedSprite" parent="." index="3"]
+position = Vector2( 452, 122 )
+frames = SubResource( 5 )
+
+[node name="bgm" parent="." index="4"]
+volume_db = -10.0
+
+[node name="efx" parent="." index="8"]
+volume_db = -8.0
+
+[node name="Camera2D" type="Camera2D" parent="." index="12"]
+offset = Vector2( 256, 128 )
+current = true
+
+[node name="Tween" type="Tween" parent="." index="13"]
+
+[node name="ball_timer" type="Timer" parent="." index="14"]
+[connection signal="area_entered" from="YSort/player/ball_hit" to="." method="_on_ball_hit_area_entered"]
+[connection signal="animation_finished" from="dragon_balls" to="." method="_on_dragon_balls_animation_finished"]
+[connection signal="frame_changed" from="dragon_balls" to="." method="_on_dragon_balls_frame_changed"]
+[connection signal="timeout" from="ball_timer" to="." method="_on_ball_timer_timeout"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/potrebbe.servire.ogg-457b598434530181e605c401eeb41b01.oggstr"
+
+[deps]
+
+source_file="res://sound/potrebbe.servire.ogg"
+dest_files=[ "res://.import/potrebbe.servire.ogg-457b598434530181e605c401eeb41b01.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

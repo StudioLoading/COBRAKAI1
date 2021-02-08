@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/kreese_aintz.ogg-1d4ca7e7bc2a9ef04d273ab541401df3.oggstr"
+
+[deps]
+
+source_file="res://sound/effects/kreese_aintz.ogg"
+dest_files=[ "res://.import/kreese_aintz.ogg-1d4ca7e7bc2a9ef04d273ab541401df3.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

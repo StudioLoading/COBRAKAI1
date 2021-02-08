@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts/stage_father.gd" type="Script" id=1]
+[ext_resource path="res://gui_player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui_dialog.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui_enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://diags.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Miguel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui_pause.tscn" type="PackedScene" id=7]
+[ext_resource path="res://asset/exit.png" type="Texture" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.99515, 8.44791 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 8 ), null ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="stage" type="Node2D" groups=[
+"pausable",
+]]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = -517.79
+margin_top = -311.877
+margin_right = 1032.21
+margin_bottom = 579.123
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="player" parent="GUI" instance=ExtResource( 2 )]
+anchor_top = 0.00348008
+anchor_bottom = 1.00348
+margin_left = -0.148651
+margin_top = -1.1882
+margin_right = -0.14859
+margin_bottom = -1.1882
+
+[node name="enemy" parent="GUI" instance=ExtResource( 4 )]
+margin_left = 408.0
+margin_top = 3.0
+margin_right = 508.0
+margin_bottom = 39.0
+
+[node name="cl" parent="GUI" instance=ExtResource( 3 )]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="spawn_player" type="Position2D" parent="YSort"]
+position = Vector2( 256, 155 )
+
+[node name="player" parent="YSort" instance=ExtResource( 6 )]
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+
+[node name="diags" parent="." instance=ExtResource( 5 )]
+
+[node name="edges" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camera_movement" type="Area2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="efx" type="AudioStreamPlayer" parent="."]
+volume_db = -6.0
+
+[node name="pause" parent="." instance=ExtResource( 7 )]
+
+[node name="breath_increase" type="Timer" parent="."]
+wait_time = 0.35
+autostart = true
+
+[node name="p_exit" type="Position2D" parent="."]
+position = Vector2( -100, -100 )
+
+[node name="exit" type="Area2D" parent="p_exit"]
+
+[node name="c" type="CollisionShape2D" parent="p_exit/exit"]
+shape = SubResource( 1 )
+
+[node name="a" type="AnimatedSprite" parent="p_exit"]
+position = Vector2( 0, 19 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="Tween_intro" type="Tween" parent="."]
+[connection signal="body_entered" from="camera_movement" to="." method="_on_camera_movement_body_entered"]
+[connection signal="body_exited" from="camera_movement" to="." method="_on_camera_movement_body_exited"]
+[connection signal="body_entered" from="p_exit/exit" to="." method="_on_exit_body_entered"]

@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/title.gd" type="Script" id=1]
+[ext_resource path="res://asset/title/logo0.png" type="Texture" id=2]
+[ext_resource path="res://sound/title_new.ogg" type="AudioStream" id=3]
+[ext_resource path="res://asset/GUI/controller/controller.png" type="Texture" id=4]
+[ext_resource path="res://font.gui.tres" type="DynamicFont" id=5]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -270.883
+margin_top = -132.292
+margin_right = 247.117
+margin_bottom = 195.708
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="t" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 19.0
+margin_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="efx" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="strikef" type="ColorRect" parent="."]
+margin_right = 182.0
+margin_bottom = 39.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="strikef2" type="ColorRect" parent="."]
+margin_left = 346.369
+margin_top = 1.08071
+margin_right = 528.369
+margin_bottom = 40.0807
+color = Color( 0, 0, 0, 1 )
+
+[node name="strikeh" type="ColorRect" parent="."]
+margin_left = -14.0
+margin_top = 48.0
+margin_right = 175.0
+margin_bottom = 87.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="strikeh2" type="ColorRect" parent="."]
+margin_left = 360.958
+margin_top = 44.3092
+margin_right = 542.958
+margin_bottom = 83.3092
+color = Color( 0, 0, 0, 1 )
+
+[node name="strikenomercy" type="ColorRect" parent="."]
+margin_left = 148.0
+margin_top = 185.0
+margin_right = 366.0
+margin_bottom = 224.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="thevideogame" type="ColorRect" parent="."]
+margin_left = 128.0
+margin_top = 227.0
+margin_right = 389.0
+margin_bottom = 266.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="strikefirst" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="firsthard" type="Timer" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="bg" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="joypad" type="TextureRect" parent="."]
+margin_left = 14.0
+margin_top = 226.0
+margin_right = 54.0
+margin_bottom = 243.0
+texture = ExtResource( 4 )
+
+[node name="push_start" type="Label" parent="."]
+margin_left = 128.0
+margin_top = 273.0
+margin_right = 400.0
+margin_bottom = 301.0
+custom_fonts/font = ExtResource( 5 )
+text = "PUSH START"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="t_pushstart" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="tween_pushstart" type="Tween" parent="."]
+
+[node name="to_credits" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="strikefirst" to="." method="_on_strikefirst_timeout"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="timeout" from="t_pushstart" to="." method="_on_t_pushstart_timeout"]
+[connection signal="tween_all_completed" from="tween_pushstart" to="." method="_on_tween_pushstart_tween_all_completed"]
+[connection signal="timeout" from="to_credits" to="." method="_on_to_credits_timeout"]

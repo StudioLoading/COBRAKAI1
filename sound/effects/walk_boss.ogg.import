@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/walk_boss.ogg-a44e96e142457b3ede62520a4a3032f2.oggstr"
+
+[deps]
+
+source_file="res://sound/effects/walk_boss.ogg"
+dest_files=[ "res://.import/walk_boss.ogg-a44e96e142457b3ede62520a4a3032f2.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

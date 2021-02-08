@@ -1,0 +1,17 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=2]
+
+[ext_resource path="res://asset/stage1/homeless2.png" type="Texture" id=1]
+[ext_resource path="res://asset/stage1/homeless1.png" type="Texture" id=2]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "broken",
+"speed": 3.0
+} ]

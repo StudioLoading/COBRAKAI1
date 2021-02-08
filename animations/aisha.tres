@@ -1,0 +1,61 @@
+[gd_resource type="SpriteFrames" load_steps=12 format=2]
+
+[ext_resource path="res://asset/aisha/L05,R1,C1,kick0,hidden,normal,255.png" type="Texture" id=1]
+[ext_resource path="res://asset/aisha/L11,R1,C1,dead3,hidden,normal,255.png" type="Texture" id=2]
+[ext_resource path="res://asset/aisha/L13,R1,C1,dead1,hidden,normal,255.png" type="Texture" id=3]
+[ext_resource path="res://asset/aisha/L07,R1,C1,stand,hidden,normal,255.png" type="Texture" id=4]
+[ext_resource path="res://asset/aisha/L08,R1,C1,walk1,hidden,normal,255.png" type="Texture" id=5]
+[ext_resource path="res://asset/aisha/L12,R1,C1,dead2,hidden,normal,255.png" type="Texture" id=6]
+[ext_resource path="res://asset/aisha/L06,R1,C1,kick1,hidden,normal,255.png" type="Texture" id=7]
+[ext_resource path="res://asset/aisha/L01,R1,C1,guard,visible,normal,255.png" type="Texture" id=8]
+[ext_resource path="res://asset/aisha/L10,R1,C1,hit,hidden,normal,255.png" type="Texture" id=9]
+[ext_resource path="res://asset/aisha/L04,R1,C1,jab,hidden,normal,255.png" type="Texture" id=10]
+[ext_resource path="res://asset/aisha/L09,R1,C1,walk2,hidden,normal,255.png" type="Texture" id=11]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "hit",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 11 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": false,
+"name": "hit_back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "kick",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "jab",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "stand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "guard",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "down",
+"speed": 5.0
+} ]

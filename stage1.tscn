@@ -1,0 +1,254 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://scripts/stage1_child.gd" type="Script" id=1]
+[ext_resource path="res://asset/stage1/sky.png" type="Texture" id=2]
+[ext_resource path="res://asset/stage1/Stage_01_extended_1038X256.png" type="Texture" id=3]
+[ext_resource path="res://asset/stage1/clouds.png" type="Texture" id=4]
+[ext_resource path="res://stage_father.tscn" type="PackedScene" id=5]
+[ext_resource path="res://cat.tscn" type="PackedScene" id=10]
+[ext_resource path="res://animations/miguel_stage1.tres" type="SpriteFrames" id=11]
+[ext_resource path="res://asset/stage1/car.png" type="Texture" id=13]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=14]
+[ext_resource path="res://enemy2.tscn" type="PackedScene" id=15]
+[ext_resource path="res://enemy3.tscn" type="PackedScene" id=16]
+[ext_resource path="res://ky.tscn" type="PackedScene" id=17]
+[ext_resource path="res://asset/stage1/car_police_light_0.png" type="Texture" id=18]
+[ext_resource path="res://asset/stage1/car_police_light_1.png" type="Texture" id=19]
+[ext_resource path="res://asset/stage1/car_police_light_2.png" type="Texture" id=20]
+[ext_resource path="res://asset/stage1/policeman/walk1.png" type="Texture" id=21]
+[ext_resource path="res://asset/stage1/policeman/stand.png" type="Texture" id=22]
+[ext_resource path="res://asset/stage1/policeman/walk2.png" type="Texture" id=23]
+[ext_resource path="res://asset/stage1/policeman/jab.png" type="Texture" id=24]
+[ext_resource path="res://asset/stage1/Stage_01_foreground.png" type="Texture" id=30]
+[ext_resource path="res://item_spawner.tscn" type="PackedScene" id=31]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 82.7352, 6.52779 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 24 ), ExtResource( 24 ), ExtResource( 24 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "jab",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 70.4599 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 585.381, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 576.367, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 7.15091, 105.321 )
+
+[sub_resource type="CapsuleShape2D" id=8]
+height = 141.794
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 320.304, 62.5141 )
+
+[node name="stage" instance=ExtResource( 5 )]
+script = ExtResource( 1 )
+
+[node name="background" type="CanvasLayer" parent="." index="0"]
+
+[node name="pb" type="ParallaxBackground" parent="background" index="0"]
+scroll_ignore_camera_zoom = true
+
+[node name="plsky" type="ParallaxLayer" parent="background/pb" index="0"]
+position = Vector2( -48, 20 )
+
+[node name="Sprite" type="Sprite" parent="background/pb/plsky" index="0"]
+position = Vector2( -31.4312, 16 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="plclouds" type="ParallaxLayer" parent="background/pb" index="1"]
+visible = false
+position = Vector2( 0, 140 )
+motion_offset = Vector2( 322, 0 )
+motion_mirroring = Vector2( 1, 0 )
+
+[node name="Sprite" type="Sprite" parent="background/pb/plclouds" index="0"]
+position = Vector2( 135.318, -39.7603 )
+texture = ExtResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="background/pb/plclouds" index="1"]
+position = Vector2( 200.318, -13.7603 )
+texture = ExtResource( 4 )
+
+[node name="Sprite3" type="Sprite" parent="background/pb/plclouds" index="2"]
+position = Vector2( 501.318, -23.7603 )
+texture = ExtResource( 4 )
+
+[node name="Sprite4" type="Sprite" parent="background/pb/plclouds" index="3"]
+position = Vector2( 467.318, -55.7603 )
+texture = ExtResource( 4 )
+
+[node name="plshops" type="ParallaxLayer" parent="background/pb" index="2"]
+position = Vector2( -48, 32 )
+
+[node name="shops" type="Sprite" parent="background/pb/plshops" index="0"]
+position = Vector2( 0, -5 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="player" parent="GUI" index="0"]
+margin_left = -0.029328
+margin_top = -1.07356
+margin_right = -0.0292664
+margin_bottom = -1.07356
+
+[node name="enemy" parent="GUI" index="1"]
+margin_left = 402.0
+margin_right = 502.0
+
+[node name="spawn" type="Position2D" parent="." index="3"]
+position = Vector2( 161.177, 260.172 )
+
+[node name="spawn_johnny" type="Position2D" parent="YSort" index="2"]
+position = Vector2( 314.271, 249.691 )
+
+[node name="car" type="StaticBody2D" parent="YSort" index="3"]
+position = Vector2( 144.673, 220.49 )
+collision_layer = 5
+collision_mask = 5
+
+[node name="car" type="Sprite" parent="YSort/car" index="0"]
+texture = ExtResource( 13 )
+
+[node name="car_collision" type="CollisionShape2D" parent="YSort/car" index="1"]
+position = Vector2( 1.09859, 17.1919 )
+shape = SubResource( 1 )
+
+[node name="enemy" parent="YSort" index="4" instance=ExtResource( 14 )]
+position = Vector2( 499.773, 209.446 )
+
+[node name="enemy2" parent="YSort" index="5" instance=ExtResource( 15 )]
+position = Vector2( 612.559, 247.097 )
+
+[node name="enemy3" parent="YSort" index="6" instance=ExtResource( 16 )]
+position = Vector2( 394.236, 202.992 )
+
+[node name="ky" parent="YSort" index="7" instance=ExtResource( 17 )]
+position = Vector2( 1129.33, 199.54 )
+
+[node name="police_car" type="AnimatedSprite" parent="YSort" index="8"]
+position = Vector2( -342, 230 )
+frames = SubResource( 2 )
+playing = true
+flip_h = true
+
+[node name="policeman" type="AnimatedSprite" parent="YSort/police_car" index="0"]
+position = Vector2( 90, 2 )
+frames = SubResource( 3 )
+animation = "jab"
+
+[node name="lynn" parent="YSort" index="9" instance=ExtResource( 31 )]
+position = Vector2( 541, 212 )
+
+[node name="bri" parent="YSort" index="10" instance=ExtResource( 31 )]
+position = Vector2( 264, 184 )
+
+[node name="cat" parent="YSort" index="11" instance=ExtResource( 10 )]
+position = Vector2( 528.614, 214.219 )
+frame = 0
+
+[node name="Miguel" type="StaticBody2D" parent="YSort" index="12"]
+position = Vector2( 1149.94, 194.803 )
+collision_layer = 4
+collision_mask = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="YSort/Miguel" index="0"]
+position = Vector2( 0.214783, 4.33923 )
+frames = ExtResource( 11 )
+frame = 1
+playing = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Miguel" index="1"]
+position = Vector2( -224.784, -179.694 )
+polygon = PoolVector2Array( 220.344, 163.775, 231.735, 163.775, 233.834, 179.213, 233.984, 202.746, 228.138, 204.545, 219.594, 205.294, 215.397, 201.847 )
+
+[node name="rj" parent="YSort" index="13" instance=ExtResource( 31 )]
+position = Vector2( 87.5267, 233.151 )
+
+[node name="philippe" parent="YSort" index="14" instance=ExtResource( 31 )]
+position = Vector2( 727.01, 188.554 )
+
+[node name="peter" parent="YSort" index="15" instance=ExtResource( 31 )]
+position = Vector2( 924.309, 188.032 )
+
+[node name="park0" parent="YSort" index="16" instance=ExtResource( 31 )]
+position = Vector2( 673.716, 217.687 )
+
+[node name="park1" parent="YSort" index="17" instance=ExtResource( 31 )]
+position = Vector2( 963.716, 220.687 )
+
+[node name="left" type="CollisionShape2D" parent="edges" index="0"]
+position = Vector2( 52.988, 239.968 )
+shape = SubResource( 4 )
+
+[node name="down" type="CollisionShape2D" parent="edges" index="1"]
+position = Vector2( 617.101, 319.596 )
+shape = SubResource( 5 )
+
+[node name="up" type="CollisionShape2D" parent="edges" index="2"]
+position = Vector2( 615.054, 194.971 )
+shape = SubResource( 6 )
+
+[node name="right" type="CollisionShape2D" parent="edges" index="3"]
+position = Vector2( 1192.8, 246.601 )
+shape = SubResource( 7 )
+
+[node name="mobile" type="CollisionShape2D" parent="edges" index="4"]
+position = Vector2( 822.256, 209.452 )
+rotation = 1.57032
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="camera_movement" index="0"]
+position = Vector2( 619.165, 255.149 )
+shape = SubResource( 9 )
+
+[node name="foreground" type="CanvasLayer" parent="." index="10"]
+
+[node name="pb" type="ParallaxBackground" parent="foreground" index="0"]
+layer = 1
+
+[node name="plcar" type="ParallaxLayer" parent="foreground/pb" index="0"]
+position = Vector2( 51.8785, 282.188 )
+motion_scale = Vector2( 1.5, 1 )
+
+[node name="Sprite" type="Sprite" parent="foreground/pb/plcar" index="0"]
+position = Vector2( -51.5866, -28.0192 )
+texture = ExtResource( 30 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="foreground/pb/plcar" index="1"]
+position = Vector2( 561.413, -28.0192 )
+texture = ExtResource( 30 )
+centered = false
+
+[node name="Tween" type="Tween" parent="." index="11"]
+
+[node name="a" parent="p_exit" index="1"]
+frame = 1

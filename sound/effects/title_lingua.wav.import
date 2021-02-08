@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/title_lingua.wav-aa071e3a9ca629d9e91e8e4bc7a0d94b.sample"
+
+[deps]
+
+source_file="res://sound/effects/title_lingua.wav"
+dest_files=[ "res://.import/title_lingua.wav-aa071e3a9ca629d9e91e8e4bc7a0d94b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

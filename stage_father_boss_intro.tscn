@@ -1,0 +1,136 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://stage_father.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/stage_father_boss_intro.gd" type="Script" id=2]
+[ext_resource path="res://asset/stage4/boss/bg_intro.png" type="Texture" id=3]
+[ext_resource path="res://asset/exit.png" type="Texture" id=4]
+[ext_resource path="res://asset/stage.png" type="Texture" id=5]
+[ext_resource path="res://asset/boss.png" type="Texture" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 29.8301
+
+[sub_resource type="SegmentShape2D" id=2]
+a = Vector2( 58.8716, 12.2222 )
+b = Vector2( 60.1315, 192.391 )
+
+[sub_resource type="SegmentShape2D" id=3]
+a = Vector2( -0.682648, -18.5793 )
+b = Vector2( 843.577, -17.4305 )
+
+[sub_resource type="SegmentShape2D" id=4]
+b = Vector2( 693.052, 0.935638 )
+
+[sub_resource type="SegmentShape2D" id=5]
+a = Vector2( -53.1492, 20.3933 )
+b = Vector2( 31.3799, 20.5918 )
+
+[sub_resource type="SegmentShape2D" id=6]
+a = Vector2( 32.5705, 20.1949 )
+b = Vector2( 32.372, 40.2358 )
+
+[sub_resource type="SegmentShape2D" id=7]
+a = Vector2( -29.4124, 9.49055 )
+b = Vector2( -4.25012, 19.8203 )
+
+[sub_resource type="SegmentShape2D" id=8]
+a = Vector2( -32.3259, -0.774323 )
+b = Vector2( -61.1963, 11.1447 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 163.383, 26.3234 )
+
+[node name="stage" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="ColorRect" parent="." index="0"]
+margin_left = -797.383
+margin_top = -435.817
+margin_right = 1679.62
+margin_bottom = 779.183
+
+[node name="env" type="Node2D" parent="." index="1"]
+
+[node name="ColorRect" type="ColorRect" parent="env" index="0"]
+margin_left = -219.251
+margin_top = -59.2509
+margin_right = 1051.75
+margin_bottom = 388.749
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="Sprite" parent="env" index="1"]
+position = Vector2( 0, 73 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="back_to_stage" type="Area2D" parent="." index="2"]
+position = Vector2( 46, 178 )
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="back_to_stage" index="0"]
+position = Vector2( -24, 0 )
+shape = SubResource( 1 )
+
+[node name="stage_label" type="Sprite" parent="back_to_stage" index="1"]
+position = Vector2( -19, -36 )
+texture = ExtResource( 5 )
+
+[node name="stage_arrow" type="Sprite" parent="back_to_stage" index="2"]
+position = Vector2( -27, -30 )
+rotation = -1.5708
+texture = ExtResource( 4 )
+
+[node name="boss_label" type="Sprite" parent="back_to_stage" index="3"]
+position = Vector2( 21, -36 )
+texture = ExtResource( 6 )
+
+[node name="boss_arrow" type="Sprite" parent="back_to_stage" index="4"]
+position = Vector2( 26, -30 )
+rotation = 1.5708
+texture = ExtResource( 4 )
+
+[node name="spawn_player_stage" type="Position2D" parent="YSort" index="1"]
+position = Vector2( 72.841, 163.955 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="edges" index="0"]
+position = Vector2( -37, 48.5546 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="edges" index="1"]
+position = Vector2( 0, 207 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="edges" index="2"]
+position = Vector2( -1, 171 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="edges" index="3"]
+position = Vector2( 800, 150 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="edges" index="4"]
+position = Vector2( 800, 150 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="edges" index="5"]
+position = Vector2( 750, 150 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="edges" index="6"]
+position = Vector2( 750, 160 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="camera_movement" index="0"]
+position = Vector2( 377, 177 )
+shape = SubResource( 9 )
+
+[node name="p_exit_stage" type="Position2D" parent="." index="12"]
+position = Vector2( 720, 159 )
+
+[node name="a" parent="p_exit" index="1"]
+frame = 1
+[connection signal="body_entered" from="back_to_stage" to="." method="_on_back_to_stage_body_entered"]

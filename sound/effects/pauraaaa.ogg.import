@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pauraaaa.ogg-410a9e9f2f3f5c364fe55767f3afc63a.oggstr"
+
+[deps]
+
+source_file="res://sound/effects/pauraaaa.ogg"
+dest_files=[ "res://.import/pauraaaa.ogg-410a9e9f2f3f5c364fe55767f3afc63a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://animations/stage5_ball.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://scripts/stage5_ball.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 2.07411
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 2.18044
+
+[node name="ball" type="RigidBody2D" groups=[
+"ball",
+]]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 1 )
+playing = true
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="efx" type="AudioStreamPlayer" parent="."]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

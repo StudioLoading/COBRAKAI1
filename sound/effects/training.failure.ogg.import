@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/training.failure.ogg-c99cdb7f91b779fa4ae0d2c34c204389.oggstr"
+
+[deps]
+
+source_file="res://sound/effects/training.failure.ogg"
+dest_files=[ "res://.import/training.failure.ogg-c99cdb7f91b779fa4ae0d2c34c204389.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

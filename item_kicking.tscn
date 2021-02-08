@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://asset/stage6/sedia_frontale.png" type="Texture" id=1]
+[ext_resource path="res://scripts/item_kicking.gd" type="Script" id=2]
+[ext_resource path="res://asset/stage6/sedia_frontale_bilico.png" type="Texture" id=3]
+[ext_resource path="res://asset/stage6/sedia_frontale_rotta.png" type="Texture" id=4]
+[ext_resource path="res://asset/sgommata.1.png" type="Texture" id=5]
+[ext_resource path="res://asset/sgommata.2.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "broken",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "bilico",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.40882, 3.43753 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 5.40882, 19.1647 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ null, ExtResource( 6 ), ExtResource( 5 ), ExtResource( 6 ), null ],
+"loop": false,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 6.93655
+
+[node name="sedia" type="Node2D" groups=[
+"item_kicking",
+]]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -24 )
+frames = SubResource( 1 )
+offset = Vector2( 0, 24 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="walk" type="StaticBody2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walk"]
+position = Vector2( 0, 20 )
+shape = SubResource( 2 )
+
+[node name="kick" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kick"]
+position = Vector2( 0, 6 )
+shape = SubResource( 3 )
+
+[node name="puff" type="AnimatedSprite" parent="."]
+position = Vector2( -7, 3 )
+frames = SubResource( 4 )
+
+[node name="efx" type="AudioStreamPlayer" parent="."]
+
+[node name="hit_enemy" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_enemy"]
+position = Vector2( 0, 8 )
+shape = SubResource( 5 )
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="area_entered" from="kick" to="." method="_on_kick_area_entered"]
+[connection signal="area_exited" from="kick" to="." method="_on_kick_area_exited"]

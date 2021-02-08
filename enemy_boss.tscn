@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/enemy_boss.gd" type="Script" id=1]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://animations/boss_pirate_kyler.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://animations/kiai.tres" type="SpriteFrames" id=4]
+
+[node name="enemy" groups=[
+"boss",
+] instance=ExtResource( 2 )]
+position = Vector2( 0.374573, 0 )
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" parent="." index="0"]
+frames = ExtResource( 3 )
+animation = "walk"
+
+[node name="wakeup" type="Timer" parent="." index="12"]
+wait_time = 4.0
+one_shot = true
+
+[node name="kiai" type="AnimatedSprite" parent="." index="13"]
+frames = ExtResource( 4 )
+[connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
+[connection signal="timeout" from="wakeup" to="." method="_on_wakeup_timeout"]

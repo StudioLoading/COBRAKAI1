@@ -1,0 +1,20 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=2]
+
+[ext_resource path="res://asset/GUI/cobra/miguel_speak.png" type="Texture" id=2]
+[ext_resource path="res://asset/GUI/cobra/miguel_sciroppo_1.png" type="Texture" id=3]
+[ext_resource path="res://asset/GUI/cobra/miguel_sciroppo_2.png" type="Texture" id=4]
+[ext_resource path="res://asset/GUI/cobra/miguel_sciroppo_3.png" type="Texture" id=5]
+[ext_resource path="res://asset/GUI/cobra/Miguel_mute.png" type="Texture" id=6]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "sciroppo",
+"speed": 9.0
+} ]

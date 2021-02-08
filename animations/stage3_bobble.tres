@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=2]
+
+[ext_resource path="res://asset/stage3/bobble/1.png" type="Texture" id=1]
+[ext_resource path="res://asset/stage3/bobble/2.png" type="Texture" id=2]
+[ext_resource path="res://asset/stage3/bobble/3.png" type="Texture" id=3]
+[ext_resource path="res://asset/stage3/bobble/4.png" type="Texture" id=4]
+[ext_resource path="res://asset/stage3/bobble/5.png" type="Texture" id=5]
+[ext_resource path="res://asset/stage3/bobble/6.png" type="Texture" id=6]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "b",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "s",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]

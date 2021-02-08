@@ -1,0 +1,157 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://scripts/stagebonus_intro.gd" type="Script" id=1]
+[ext_resource path="res://asset/stagebonus/bg.png" type="Texture" id=2]
+[ext_resource path="res://asset/stagebonus/ombra2.1.png" type="Texture" id=3]
+[ext_resource path="res://asset/stagebonus/ombra2.2.png" type="Texture" id=4]
+[ext_resource path="res://asset/stagebonus/ombra2.3.png" type="Texture" id=5]
+[ext_resource path="res://asset/stagebonus/cestino.png" type="Texture" id=6]
+[ext_resource path="res://animations/fire.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://gui_dialog.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sound/stagebonus.ogg" type="AudioStream" id=9]
+[ext_resource path="res://animations/Johnny_gi.tres" type="SpriteFrames" id=10]
+[ext_resource path="res://animations/Kreese.tres" type="SpriteFrames" id=11]
+[ext_resource path="res://asset/GUI/GameOver_screen.png" type="Texture" id=12]
+[ext_resource path="res://font.gui.tres" type="DynamicFont" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SegmentShape2D" id=2]
+b = Vector2( 316, 0 )
+
+[sub_resource type="SegmentShape2D" id=3]
+b = Vector2( 132, 0 )
+
+[sub_resource type="SegmentShape2D" id=4]
+b = Vector2( -95.1603, 95.8532 )
+
+[sub_resource type="SegmentShape2D" id=5]
+b = Vector2( 91.0513, 92.6526 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="bg" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ombre" type="Node2D" parent="."]
+
+[node name="o" type="AnimatedSprite" parent="ombre"]
+frames = SubResource( 1 )
+frame = 2
+playing = true
+centered = false
+
+[node name="cestino" type="Sprite" parent="."]
+position = Vector2( 48, 115 )
+texture = ExtResource( 6 )
+
+[node name="f" type="AnimatedSprite" parent="."]
+position = Vector2( 45, 99 )
+frames = ExtResource( 7 )
+frame = 1
+playing = true
+
+[node name="cl" parent="." instance=ExtResource( 8 )]
+
+[node name="noncalpestabile" type="StaticBody2D" parent="."]
+
+[node name="d" type="CollisionShape2D" parent="noncalpestabile"]
+position = Vector2( 14, 214 )
+shape = SubResource( 2 )
+
+[node name="u" type="CollisionShape2D" parent="noncalpestabile"]
+position = Vector2( 107, 121 )
+shape = SubResource( 3 )
+
+[node name="l" type="CollisionShape2D" parent="noncalpestabile"]
+position = Vector2( 107, 120 )
+shape = SubResource( 4 )
+
+[node name="r" type="CollisionShape2D" parent="noncalpestabile"]
+position = Vector2( 239, 121 )
+shape = SubResource( 5 )
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="johnny" type="AnimatedSprite" parent="YSort"]
+position = Vector2( 208, 125 )
+frames = ExtResource( 10 )
+animation = "stand"
+playing = true
+flip_h = true
+
+[node name="kreese" type="AnimatedSprite" parent="YSort"]
+position = Vector2( 6, 155 )
+frames = ExtResource( 11 )
+animation = "sweep"
+frame = 2
+playing = true
+
+[node name="pos" type="Position2D" parent="YSort"]
+position = Vector2( 175, 125 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -62 )
+anchor_mode = 0
+current = true
+
+[node name="credits" type="CanvasLayer" parent="."]
+
+[node name="bg" type="Sprite" parent="credits"]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 12 )
+centered = false
+
+[node name="cc" type="CenterContainer" parent="credits"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -118.0
+
+[node name="Label" type="Label" parent="credits/cc"]
+margin_left = 44.0
+margin_right = 467.0
+margin_bottom = 118.0
+custom_fonts/font = ExtResource( 13 )
+text = "DEVELOPED BY 
+
+FRANCESCO BACCHELLI
+
+
+
+
+
+
+
+https://www.facebook.com/groups/officialcobrakaidojo"
+align = 1
+
+[node name="Timer" type="Timer" parent="credits"]
+wait_time = 4.0
+
+[node name="bg2" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.487671
+margin_top = -0.975357
+margin_right = 511.512
+margin_bottom = 255.025
+color = Color( 0, 0, 0, 1 )
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

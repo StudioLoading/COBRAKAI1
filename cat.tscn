@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://animations/cat.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://scriptscat.gd" type="Script" id=2]
+
+[node name="cat" type="AnimatedSprite" groups=[
+"pausable",
+]]
+position = Vector2( 0, 20 )
+frames = ExtResource( 1 )
+animation = "stand-pr"
+frame = 4
+playing = true
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

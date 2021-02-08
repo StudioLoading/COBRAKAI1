@@ -1,0 +1,131 @@
+[gd_resource type="SpriteFrames" load_steps=32 format=2]
+
+[ext_resource path="res://asset/miguel/flex0.png" type="Texture" id=1]
+[ext_resource path="res://asset/miguel/flex1.png" type="Texture" id=2]
+[ext_resource path="res://asset/miguel/flex3.png" type="Texture" id=3]
+[ext_resource path="res://asset/miguel_gi/L26,R1,C1,cranekick3,hidden,normal,255.png" type="Texture" id=4]
+[ext_resource path="res://asset/miguel_gi/L22,R1,C1,dead1,hidden,normal,255.png" type="Texture" id=5]
+[ext_resource path="res://asset/miguel_gi/L25,R1,C1,cranekick2,hidden,normal,255.png" type="Texture" id=6]
+[ext_resource path="res://asset/miguel_gi/L12,R1,C1,kick0,hidden,normal,255.png" type="Texture" id=7]
+[ext_resource path="res://asset/miguel_gi/L10,R1,C1,raw,hidden,normal,255.png" type="Texture" id=8]
+[ext_resource path="res://asset/miguel_gi/L27,R1,C1,cranekick4,hidden,normal,255.png" type="Texture" id=9]
+[ext_resource path="res://asset/miguel_gi/L13,R1,C1,kick1,hidden,normal,255.png" type="Texture" id=10]
+[ext_resource path="res://asset/miguel_gi/L17,R1,C1,walk1,hidden,normal,255.png" type="Texture" id=11]
+[ext_resource path="res://asset/miguel_gi/L18,R1,C1,walk2,hidden,normal,255.png" type="Texture" id=12]
+[ext_resource path="res://asset/miguel_gi/L21,R1,C1,dead2,hidden,normal,255.png" type="Texture" id=13]
+[ext_resource path="res://asset/miguel_gi/L20,R1,C1,dead3,hidden,normal,255.png" type="Texture" id=14]
+[ext_resource path="res://asset/miguel_gi/L11,R1,C1,jab,hidden,normal,255.png" type="Texture" id=15]
+[ext_resource path="res://asset/miguel_gi/L04,R1,C1,backfist1,hidden,normal,255.png" type="Texture" id=16]
+[ext_resource path="res://asset/miguel_gi/L08,R1,C1,uppercut2,hidden,normal,255.png" type="Texture" id=17]
+[ext_resource path="res://asset/miguel_gi/L03,R1,C1,backfist2,hidden,normal,255.png" type="Texture" id=18]
+[ext_resource path="res://asset/miguel_dodge/L5,R1,C1,stand,visible,normal,255.png" type="Texture" id=19]
+[ext_resource path="res://asset/miguel_gi/L16,R1,C1,stand,hidden,normal,255.png" type="Texture" id=20]
+[ext_resource path="res://asset/miguel_gi/L01,R1,C1,guard,visible,normal,255.png" type="Texture" id=21]
+[ext_resource path="res://asset/miguel_gi/L19,R1,C1,hit,hidden,normal,255.png" type="Texture" id=22]
+[ext_resource path="res://asset/miguel_dodge/L2,R1,C1,up,hidden,normal,255.png" type="Texture" id=24]
+[ext_resource path="res://asset/miguel_dodge/L1,R1,C1,left,hidden,normal,255.png" type="Texture" id=25]
+[ext_resource path="res://asset/miguel_dodge/L4,R1,C1,down,hidden,normal,255.png" type="Texture" id=26]
+[ext_resource path="res://asset/miguel_gi/L24,R1,C1,cranekick1,hidden,normal,255.png" type="Texture" id=27]
+[ext_resource path="res://asset/miguel_dodge/L3,R1,C1,right,hidden,normal,255.png" type="Texture" id=28]
+[ext_resource path="res://asset/miguel_gi/L02,R1,C1,dash,hidden,normal,255.png" type="Texture" id=29]
+[ext_resource path="res://asset/miguel_gi/L06,R1,C1,backkick1,hidden,normal,255.png" type="Texture" id=30]
+[ext_resource path="res://asset/miguel_gi/L05,R1,C1,backkick2,hidden,normal,255.png" type="Texture" id=31]
+[ext_resource path="res://asset/miguel_gi/L09,R1,C1,uppercut1,hidden,normal,255.png" type="Texture" id=32]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 5 ), ExtResource( 13 ), ExtResource( 5 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ) ],
+"loop": false,
+"name": "dash",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": false,
+"name": "hit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 20 ), ExtResource( 12 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "walk",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "kick",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": false,
+"name": "jab",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": false,
+"name": "stand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": false,
+"name": "guard",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 32 ), ExtResource( 17 ) ],
+"loop": false,
+"name": "uppercut",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "cranekick",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "raw",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "backfist",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": false,
+"name": "backkick",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "flex",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": false,
+"name": "dodge_left",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": false,
+"name": "dodge_down",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": false,
+"name": "dodge_right",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": false,
+"name": "dodge_guard",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": false,
+"name": "dodge_up",
+"speed": 3.0
+} ]

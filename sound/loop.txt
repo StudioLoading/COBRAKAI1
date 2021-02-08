@@ -1,0 +1,9 @@
+file './pauraaaa.ogg'
+file './pauraaaa.ogg'
+file './pauraaaa.ogg'
+file './pauraaaa.ogg'
+file './pauraaaa.ogg'
+file './pauraaaa.ogg'
+
+ffmpeg -f concat -safe 0 -i loop.txt -acodec libmp3lame paura.mp3
+

@@ -1,0 +1,16 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=2]
+
+[ext_resource path="res://asset/stage4/hawk.png" type="Texture" id=1]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "broken",
+"speed": 5.0
+} ]

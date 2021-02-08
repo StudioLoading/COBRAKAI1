@@ -1,0 +1,86 @@
+[gd_resource type="SpriteFrames" load_steps=27 format=2]
+
+[ext_resource path="res://asset/daniel/L26,R1,C1,hit1,hidden,normal,255.png" type="Texture" id=1]
+[ext_resource path="res://asset/daniel/L27,R1,C1,hit2,hidden,normal,255.png" type="Texture" id=2]
+[ext_resource path="res://asset/daniel/L20,R1,C1,raw0,hidden,normal,255.png" type="Texture" id=3]
+[ext_resource path="res://asset/daniel/L03,R1,C1,walk2,hidden,normal,255.png" type="Texture" id=4]
+[ext_resource path="res://asset/daniel/L22,R1,C1,raw2,hidden,normal,255.png" type="Texture" id=5]
+[ext_resource path="res://asset/daniel/L24,R1,C1,kick0,hidden,normal,255.png" type="Texture" id=6]
+[ext_resource path="res://asset/daniel/L21,R1,C1,raw1,hidden,normal,255.png" type="Texture" id=7]
+[ext_resource path="res://asset/daniel/L02,R1,C1,walk1,hidden,normal,255.png" type="Texture" id=8]
+[ext_resource path="res://asset/daniel/L25,R1,C1,kick1,hidden,normal,255.png" type="Texture" id=9]
+[ext_resource path="res://asset/daniel/L13,R1,C1,kata05,hidden,normal,255.png" type="Texture" id=10]
+[ext_resource path="res://asset/daniel/L19,R1,C1,guard,visible,normal,255.png" type="Texture" id=11]
+[ext_resource path="res://asset/daniel/L17,R1,C1,kata09,hidden,normal,255.png" type="Texture" id=12]
+[ext_resource path="res://asset/daniel/L07,R1,C1,dash4,hidden,normal,255.png" type="Texture" id=13]
+[ext_resource path="res://asset/daniel/L15,R1,C1,kata07,hidden,normal,255.png" type="Texture" id=14]
+[ext_resource path="res://asset/daniel/L11,R1,C1,kata03,hidden,normal,255.png" type="Texture" id=15]
+[ext_resource path="res://asset/daniel/L16,R1,C1,kata08,hidden,normal,255.png" type="Texture" id=16]
+[ext_resource path="res://asset/daniel/L09,R1,C1,kata01,hidden,normal,255.png" type="Texture" id=17]
+[ext_resource path="res://asset/daniel/L08,R1,C1,kata00,hidden,normal,255.png" type="Texture" id=18]
+[ext_resource path="res://asset/daniel/L18,R1,C1,kata10,hidden,normal,255.png" type="Texture" id=19]
+[ext_resource path="res://asset/daniel/L14,R1,C1,kata06,hidden,normal,255.png" type="Texture" id=20]
+[ext_resource path="res://asset/daniel/L12,R1,C1,kata04,hidden,normal,255.png" type="Texture" id=21]
+[ext_resource path="res://asset/daniel/L10,R1,C1,kata02,hidden,normal,255.png" type="Texture" id=22]
+[ext_resource path="res://asset/daniel/L01,R1,C1,stand,hidden,normal,255.png" type="Texture" id=23]
+[ext_resource path="res://asset/daniel/L06,R1,C1,dash2,hidden,normal,255.png" type="Texture" id=24]
+[ext_resource path="res://asset/daniel/L04,R1,C1,dash0,hidden,normal,255.png" type="Texture" id=25]
+[ext_resource path="res://asset/daniel/L05,R1,C1,dash1,hidden,normal,255.png" type="Texture" id=26]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "dash",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "hit",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 23 ), ExtResource( 4 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "hit_back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "kick",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "jab",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 23 ) ],
+"loop": false,
+"name": "stand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": false,
+"name": "guard",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 15 ), ExtResource( 21 ), ExtResource( 10 ), ExtResource( 20 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 19 ) ],
+"loop": false,
+"name": "raw",
+"speed": 8.0
+} ]

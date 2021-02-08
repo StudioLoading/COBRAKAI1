@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/boss_glass_broken.ogg-70c864196f62aa94353578408dabe687.oggstr"
+
+[deps]
+
+source_file="res://sound/effects/boss_glass_broken.ogg"
+dest_files=[ "res://.import/boss_glass_broken.ogg-70c864196f62aa94353578408dabe687.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

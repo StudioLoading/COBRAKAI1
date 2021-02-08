@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/vidal.ogg-0f485febf897a866f11f151b717754a2.oggstr"
+
+[deps]
+
+source_file="res://sound/vidal.ogg"
+dest_files=[ "res://.import/vidal.ogg-0f485febf897a866f11f151b717754a2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

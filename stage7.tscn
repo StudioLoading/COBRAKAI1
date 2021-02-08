@@ -1,0 +1,256 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://stage_father.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/stage7.gd" type="Script" id=2]
+[ext_resource path="res://asset/stage2/bg.png" type="Texture" id=3]
+[ext_resource path="res://animations/Johnny_gi.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://asset/students/L1,R1,C1,johnny,hidden,normal,255.png" type="Texture" id=5]
+[ext_resource path="res://asset/students/L2,R1,C1,bobby,hidden,normal,255.png" type="Texture" id=6]
+[ext_resource path="res://asset/students/L5,R1,C1,other1,hidden,normal,255.png" type="Texture" id=7]
+[ext_resource path="res://asset/students/L4,R1,C1,demetri,hidden,normal,255.png" type="Texture" id=8]
+[ext_resource path="res://asset/students/L3,R1,C1,dutch,hidden,normal,255.png" type="Texture" id=9]
+[ext_resource path="res://asset/students/L6,R1,C1,other2,hidden,normal,255.png" type="Texture" id=10]
+[ext_resource path="res://asset/students/L7,R1,C1,other3,hidden,normal,255.png" type="Texture" id=11]
+[ext_resource path="res://enemy_aisha.tscn" type="PackedScene" id=12]
+[ext_resource path="res://enemy_bert.tscn" type="PackedScene" id=13]
+[ext_resource path="res://enemy_hawk.tscn" type="PackedScene" id=14]
+[ext_resource path="res://animations/aisha.tres" type="SpriteFrames" id=15]
+[ext_resource path="res://animations/bert.tres" type="SpriteFrames" id=16]
+[ext_resource path="res://animations/hawk.tres" type="SpriteFrames" id=17]
+[ext_resource path="res://asset/stage2/fantoccio_1.png" type="Texture" id=18]
+[ext_resource path="res://asset/stage2/fantoccio_2.png" type="Texture" id=19]
+[ext_resource path="res://asset/stage2/tavole.png" type="Texture" id=20]
+[ext_resource path="res://asset/stage2/basso.png" type="Texture" id=21]
+[ext_resource path="res://asset/stage2/flessioni.png" type="Texture" id=22]
+[ext_resource path="res://asset/stage7/left.png" type="Texture" id=23]
+[ext_resource path="res://asset/stage7/right.png" type="Texture" id=24]
+[ext_resource path="res://enemy_johnny.tscn" type="PackedScene" id=25]
+[ext_resource path="res://item.tscn" type="PackedScene" id=26]
+
+[sub_resource type="SegmentShape2D" id=1]
+a = Vector2( -66.8633, 110.704 )
+b = Vector2( 211.053, 110.704 )
+
+[sub_resource type="SegmentShape2D" id=2]
+a = Vector2( 13.0218, 25.3527 )
+b = Vector2( 133.27, 25.3527 )
+
+[sub_resource type="SegmentShape2D" id=3]
+a = Vector2( 15.5445, 26.1935 )
+b = Vector2( -68.1247, 110.283 )
+
+[sub_resource type="SegmentShape2D" id=4]
+a = Vector2( 132.85, 25.7731 )
+b = Vector2( 212.314, 110.283 )
+
+[node name="stage" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="ColorRect2" type="ColorRect" parent="." index="0"]
+margin_left = -676.452
+margin_top = -301.909
+margin_right = 1146.55
+margin_bottom = 772.091
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" parent="." index="1"]
+margin_left = -358.109
+margin_top = -221.109
+margin_right = 881.891
+margin_bottom = 492.891
+
+[node name="env" type="Node2D" parent="." index="2"]
+
+[node name="bg" type="Sprite" parent="env" index="0"]
+position = Vector2( 0.194859, 0 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="left" type="Sprite" parent="env/bg" index="0"]
+position = Vector2( 108.948, 74.7568 )
+texture = ExtResource( 23 )
+
+[node name="right" type="Sprite" parent="env/bg" index="1"]
+position = Vector2( 399, 75 )
+texture = ExtResource( 24 )
+
+[node name="tatami" type="StaticBody2D" parent="env" index="1"]
+position = Vector2( 100, 100 )
+
+[node name="down" type="CollisionShape2D" parent="env/tatami" index="0"]
+shape = SubResource( 1 )
+
+[node name="up" type="CollisionShape2D" parent="env/tatami" index="1"]
+shape = SubResource( 2 )
+
+[node name="left" type="CollisionShape2D" parent="env/tatami" index="2"]
+shape = SubResource( 3 )
+disabled = true
+
+[node name="right" type="CollisionShape2D" parent="env/tatami" index="3"]
+shape = SubResource( 4 )
+disabled = true
+
+[node name="miguel_start_pos" type="Position2D" parent="env" index="2"]
+position = Vector2( 115, 146 )
+
+[node name="enemy_start_pos" type="Position2D" parent="env" index="3"]
+position = Vector2( 232, 146 )
+
+[node name="hawk_first_pos" type="Position2D" parent="env" index="4"]
+position = Vector2( 57.423, 207.859 )
+
+[node name="hawk_final_pos" type="Position2D" parent="env" index="5"]
+position = Vector2( 334.063, 176.808 )
+
+[node name="bert_first_pos" type="Position2D" parent="env" index="6"]
+position = Vector2( 315.701, 149.095 )
+
+[node name="aisha_first_pos" type="Position2D" parent="env" index="7"]
+position = Vector2( 292.346, 130.077 )
+
+[node name="fantoccio" type="Sprite" parent="env" index="8"]
+position = Vector2( 470, 134 )
+texture = ExtResource( 18 )
+
+[node name="fantoccio2" type="Sprite" parent="env" index="9"]
+position = Vector2( 450, 202 )
+texture = ExtResource( 19 )
+
+[node name="kick" type="Sprite" parent="env" index="10"]
+position = Vector2( 505, 145 )
+texture = ExtResource( 20 )
+
+[node name="down" type="Sprite" parent="env" index="11"]
+position = Vector2( 492, 188 )
+texture = ExtResource( 21 )
+
+[node name="flex" type="Sprite" parent="env" index="12"]
+position = Vector2( 408, 116 )
+texture = ExtResource( 22 )
+
+[node name="spawn_player_stage" type="Position2D" parent="YSort" index="2"]
+position = Vector2( 57, 133 )
+
+[node name="johnny" type="AnimatedSprite" parent="YSort" index="3"]
+position = Vector2( 74, 114 )
+frames = ExtResource( 4 )
+animation = "stand"
+
+[node name="student0" type="Sprite" parent="YSort" index="4"]
+position = Vector2( 337, 125 )
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="student1" type="Sprite" parent="YSort" index="5"]
+position = Vector2( 347, 138 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="student2" type="Sprite" parent="YSort" index="6"]
+position = Vector2( 357, 147 )
+texture = ExtResource( 9 )
+flip_h = true
+
+[node name="student11" type="Sprite" parent="YSort" index="7"]
+position = Vector2( 406, 136 )
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="student12" type="Sprite" parent="YSort" index="8"]
+position = Vector2( 416, 149 )
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="student13" type="Sprite" parent="YSort" index="9"]
+position = Vector2( 426, 158 )
+texture = ExtResource( 9 )
+flip_h = true
+
+[node name="student3" type="Sprite" parent="YSort" index="10"]
+position = Vector2( 381, 137 )
+texture = ExtResource( 8 )
+flip_h = true
+
+[node name="student14" type="Sprite" parent="YSort" index="11"]
+position = Vector2( 437, 174 )
+texture = ExtResource( 8 )
+flip_h = true
+
+[node name="student4" type="Sprite" parent="YSort" index="12"]
+position = Vector2( 391, 147 )
+texture = ExtResource( 7 )
+flip_h = true
+
+[node name="student5" type="Sprite" parent="YSort" index="13"]
+position = Vector2( 401, 160 )
+texture = ExtResource( 10 )
+flip_h = true
+
+[node name="student6" type="Sprite" parent="YSort" index="14"]
+position = Vector2( 411, 176 )
+texture = ExtResource( 11 )
+flip_h = true
+
+[node name="student7" type="Sprite" parent="YSort" index="15"]
+position = Vector2( 435, 137 )
+texture = ExtResource( 8 )
+flip_h = true
+
+[node name="student8" type="Sprite" parent="YSort" index="16"]
+position = Vector2( 445, 147 )
+texture = ExtResource( 7 )
+flip_h = true
+
+[node name="student9" type="Sprite" parent="YSort" index="17"]
+position = Vector2( 455, 160 )
+texture = ExtResource( 10 )
+flip_h = true
+
+[node name="student10" type="Sprite" parent="YSort" index="18"]
+position = Vector2( 465, 176 )
+texture = ExtResource( 11 )
+flip_h = true
+
+[node name="aisha" parent="YSort" index="19" instance=ExtResource( 12 )]
+position = Vector2( -165.495, 293.737 )
+
+[node name="bert" parent="YSort" index="20" instance=ExtResource( 13 )]
+position = Vector2( -140.495, 325.737 )
+
+[node name="hawk" parent="YSort" index="21" instance=ExtResource( 14 )]
+position = Vector2( -441.864, 397.504 )
+
+[node name="aisha_anim" type="AnimatedSprite" parent="YSort" index="22"]
+position = Vector2( 289.371, 122.348 )
+frames = ExtResource( 15 )
+animation = "stand"
+flip_h = true
+
+[node name="bert_anim" type="AnimatedSprite" parent="YSort" index="23"]
+position = Vector2( 309.298, 147.23 )
+frames = ExtResource( 16 )
+animation = "stand"
+flip_h = true
+
+[node name="hawk_anim" type="AnimatedSprite" parent="YSort" index="24"]
+position = Vector2( -22.4051, 233.085 )
+frames = ExtResource( 17 )
+animation = "stand"
+
+[node name="enemy_johnny" parent="YSort" index="25" instance=ExtResource( 25 )]
+position = Vector2( -310.498, 251.703 )
+
+[node name="hp" parent="YSort" index="26" instance=ExtResource( 26 )]
+position = Vector2( 57.423, 182.5 )
+
+[node name="a" parent="p_exit" index="1"]
+frame = 1
+
+[node name="Camera2D" type="Camera2D" parent="." index="13"]
+anchor_mode = 0
+
+[node name="Tween" type="Tween" parent="." index="14"]

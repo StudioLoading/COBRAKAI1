@@ -1,0 +1,438 @@
+[gd_scene load_steps=40 format=2]
+
+[ext_resource path="res://scripts/stage3_dojo.gd" type="Script" id=1]
+[ext_resource path="res://asset/stage2/bg.png" type="Texture" id=2]
+[ext_resource path="res://font.gui.tres" type="DynamicFont" id=3]
+[ext_resource path="res://asset/stage2/flessioni.png" type="Texture" id=4]
+[ext_resource path="res://asset/stage2/fantoccio_1.png" type="Texture" id=5]
+[ext_resource path="res://asset/stage2/fantoccio_hit.png" type="Texture" id=6]
+[ext_resource path="res://asset/stage2/fantoccio_linea.png" type="Texture" id=7]
+[ext_resource path="res://asset/stage2/fantoccio_2.png" type="Texture" id=8]
+[ext_resource path="res://asset/stage2/fantoccio_2hit.png" type="Texture" id=9]
+[ext_resource path="res://asset/stage2/tavole.png" type="Texture" id=10]
+[ext_resource path="res://asset/stage2/tavole_rotte.png" type="Texture" id=11]
+[ext_resource path="res://asset/stage2/basso.png" type="Texture" id=12]
+[ext_resource path="res://asset/stage2/basso_hit.png" type="Texture" id=13]
+[ext_resource path="res://asset/johnny_gi/walk1.png" type="Texture" id=14]
+[ext_resource path="res://asset/johnny_gi/stand.png" type="Texture" id=15]
+[ext_resource path="res://asset/johnny_gi/walk2.png" type="Texture" id=16]
+[ext_resource path="res://asset/johnny_gi/guard.png" type="Texture" id=17]
+[ext_resource path="res://asset/johnny_gi/jab.png" type="Texture" id=18]
+[ext_resource path="res://Miguel.tscn" type="PackedScene" id=19]
+[ext_resource path="res://gui_dialog.tscn" type="PackedScene" id=20]
+[ext_resource path="res://animations/stage_train_blinkin_msg.tres" type="SpriteFrames" id=21]
+[ext_resource path="res://gui_player.tscn" type="PackedScene" id=23]
+[ext_resource path="res://sound/stage3.1.ogg" type="AudioStream" id=24]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.11801, 6.10048 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "hit",
+"speed": 4.0
+} ]
+
+[sub_resource type="SegmentShape2D" id=3]
+a = Vector2( -2.42673, -3.01935 )
+b = Vector2( 2.36697, 2.41602 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "hit",
+"speed": 4.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": false,
+"name": "broken",
+"speed": 5.0
+} ]
+
+[sub_resource type="SegmentShape2D" id=6]
+a = Vector2( -25.2339, 13.8383 )
+b = Vector2( -13.6357, 26.7122 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "hit",
+"speed": 5.0
+} ]
+
+[sub_resource type="SegmentShape2D" id=8]
+a = Vector2( -22.0357, -0.622932 )
+b = Vector2( -12.8731, 9.93138 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "jab",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "stand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "guard",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 10, 3.89546 )
+
+[sub_resource type="CircleShape2D" id=11]
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 312.429, 10 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 10, 111.523 )
+
+[sub_resource type="SegmentShape2D" id=14]
+a = Vector2( 57.0577, 107.517 )
+b = Vector2( 0.320267, 164.795 )
+
+[sub_resource type="SegmentShape2D" id=15]
+a = Vector2( 452.935, 104.816 )
+b = Vector2( 517.237, 166.957 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 7.38553, 6.2538 )
+
+[node name="stage3" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -270.791
+margin_top = -168.465
+margin_right = 743.209
+margin_bottom = 397.535
+color = Color( 0, 0, 0, 1 )
+
+[node name="bg" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="step_info" type="ColorRect" parent="bg"]
+margin_left = 366.0
+margin_top = 64.0
+margin_right = 431.0
+margin_bottom = 85.0
+color = Color( 0.952941, 0.909804, 0.709804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="h" type="HBoxContainer" parent="bg/step_info"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -23.0
+margin_top = -16.5
+margin_right = 25.0
+margin_bottom = 11.5
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vi" type="VBoxContainer" parent="bg/step_info/h"]
+margin_right = 48.0
+margin_bottom = 28.0
+alignment = 1
+
+[node name="i" type="Label" parent="bg/step_info/h/vi"]
+margin_right = 48.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "FLEX"
+align = 1
+valign = 1
+
+[node name="h" type="HBoxContainer" parent="bg/step_info/h/vi"]
+margin_top = 16.0
+margin_right = 48.0
+margin_bottom = 28.0
+
+[node name="n" type="Label" parent="bg/step_info/h/vi/h"]
+margin_right = 16.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "00"
+align = 1
+valign = 1
+
+[node name="n2" type="Label" parent="bg/step_info/h/vi/h"]
+margin_left = 20.0
+margin_right = 28.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "/"
+align = 1
+valign = 1
+
+[node name="ntot" type="Label" parent="bg/step_info/h/vi/h"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "00"
+align = 1
+valign = 1
+
+[node name="blinkin_msg" type="AnimatedSprite" parent="bg/step_info"]
+position = Vector2( 32, 10 )
+frames = ExtResource( 21 )
+animation = "sensei"
+
+[node name="blinkin_msg2" type="AnimatedSprite" parent="bg/step_info"]
+position = Vector2( -258, 10 )
+frames = ExtResource( 21 )
+animation = "sensei"
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="flex" type="Area2D" parent="YSort"]
+position = Vector2( 385.152, 124.789 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="flex" type="Sprite" parent="YSort/flex"]
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="pos" type="Position2D" parent="YSort/flex"]
+position = Vector2( 6.95947, -3.63177 )
+
+[node name="c" type="CollisionShape2D" parent="YSort/flex"]
+shape = SubResource( 1 )
+
+[node name="fantoccio" type="Area2D" parent="YSort"]
+position = Vector2( 412.257, 148.413 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="fantoccio" type="AnimatedSprite" parent="YSort/fantoccio"]
+frames = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="YSort/fantoccio/fantoccio"]
+position = Vector2( -13.0417, 15.5047 )
+texture = ExtResource( 7 )
+
+[node name="pos" type="Position2D" parent="YSort/fantoccio/fantoccio"]
+position = Vector2( -17.2055, 0.504669 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/fantoccio"]
+position = Vector2( -14, 15 )
+shape = SubResource( 3 )
+
+[node name="fantoccio2" type="Area2D" parent="YSort"]
+position = Vector2( 489.139, 149.236 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="fantoccio2" type="AnimatedSprite" parent="YSort/fantoccio2"]
+position = Vector2( 0, -1 )
+frames = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="YSort/fantoccio2/fantoccio2"]
+position = Vector2( -13.0417, 18.5047 )
+texture = ExtResource( 7 )
+
+[node name="pos" type="Position2D" parent="YSort/fantoccio2/fantoccio2"]
+position = Vector2( -18.2055, -6.49533 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/fantoccio2"]
+position = Vector2( -15, 18 )
+shape = SubResource( 3 )
+
+[node name="kick" type="Area2D" parent="YSort"]
+position = Vector2( 474.852, 118.536 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="kick" type="AnimatedSprite" parent="YSort/kick"]
+frames = SubResource( 5 )
+animation = "broken"
+
+[node name="line" type="Sprite" parent="YSort/kick/kick"]
+position = Vector2( -17, 18 )
+texture = ExtResource( 7 )
+
+[node name="pos" type="Position2D" parent="YSort/kick/kick"]
+position = Vector2( -19, -3 )
+
+[node name="c" type="CollisionShape2D" parent="YSort/kick"]
+position = Vector2( 3, -3 )
+shape = SubResource( 6 )
+
+[node name="lows" type="Area2D" parent="YSort"]
+position = Vector2( 407.566, 208.528 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="YSort/lows"]
+frames = SubResource( 7 )
+animation = "hit"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/lows"]
+position = Vector2( -5, 6 )
+shape = SubResource( 8 )
+
+[node name="line" type="Sprite" parent="YSort/lows"]
+position = Vector2( -20, 10 )
+texture = ExtResource( 7 )
+
+[node name="pos" type="Position2D" parent="YSort/lows/line"]
+
+[node name="johnny2" type="AnimatedSprite" parent="YSort"]
+position = Vector2( 146.55, 135.295 )
+frames = SubResource( 9 )
+animation = "guard"
+
+[node name="s" type="StaticBody2D" parent="YSort/johnny2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/johnny2/s"]
+position = Vector2( -1.48413, 18.9764 )
+shape = SubResource( 10 )
+
+[node name="face_johnny" type="Area2D" parent="YSort/johnny2"]
+
+[node name="c" type="CollisionShape2D" parent="YSort/johnny2/face_johnny"]
+position = Vector2( 19.7354, 17.9108 )
+shape = SubResource( 11 )
+
+[node name="miguel_initial_pos" type="Position2D" parent="YSort"]
+position = Vector2( 228, 150 )
+
+[node name="miguel" parent="YSort" instance=ExtResource( 19 )]
+position = Vector2( 228, 169 )
+
+[node name="spawn_item_time" type="Position2D" parent="YSort"]
+position = Vector2( 427, 137 )
+
+[node name="non_calpestabile" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="non_calpestabile"]
+position = Vector2( 285.308, 102.127 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="non_calpestabile"]
+position = Vector2( 270.813, 263.84 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="non_calpestabile"]
+position = Vector2( -8.19318, 190.334 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="non_calpestabile"]
+position = Vector2( 521.213, 180.25 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="non_calpestabile"]
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="non_calpestabile"]
+shape = SubResource( 15 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="non_calpestabile"]
+position = Vector2( 409.39, 163.981 )
+shape = SubResource( 16 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="non_calpestabile"]
+position = Vector2( 400.767, 213.981 )
+shape = SubResource( 16 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="non_calpestabile"]
+position = Vector2( 483.744, 165.386 )
+shape = SubResource( 16 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="non_calpestabile"]
+position = Vector2( 467.862, 135.855 )
+shape = SubResource( 16 )
+
+[node name="cl" parent="." instance=ExtResource( 20 )]
+
+[node name="player" parent="cl" instance=ExtResource( 23 )]
+anchor_left = 0.00069052
+anchor_right = 1.00069
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="breath_decrease" type="Timer" parent="."]
+wait_time = 0.15
+
+[node name="blink" type="Timer" parent="."]
+wait_time = 0.4
+
+[node name="blink_pupazzo" type="Timer" parent="."]
+wait_time = 0.4
+
+[node name="efx" type="AudioStreamPlayer" parent="."]
+
+[node name="tween_timeout" type="Tween" parent="."]
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+
+[node name="camera_train" type="Camera2D" parent="."]
+position = Vector2( 256, 128 )
+[connection signal="body_entered" from="YSort/flex" to="." method="_on_flex_body_entered"]
+[connection signal="body_entered" from="YSort/fantoccio2" to="." method="_on_fantoccio2_body_entered"]
+[connection signal="body_entered" from="YSort/kick" to="." method="_on_kick_body_entered"]
+[connection signal="body_entered" from="YSort/johnny2/face_johnny" to="." method="_on_face_johnny_body_entered"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="timeout" from="breath_decrease" to="." method="_on_breath_decrease_timeout"]
+[connection signal="timeout" from="blink" to="." method="_on_blink_timeout"]
+[connection signal="timeout" from="blink_pupazzo" to="." method="_on_blink_pupazzo_timeout"]

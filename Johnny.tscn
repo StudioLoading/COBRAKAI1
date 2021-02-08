@@ -1,0 +1,213 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://scripts/Johnny.gd" type="Script" id=1]
+[ext_resource path="res://animations/Johnny.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://asset/sgommata.1.png" type="Texture" id=3]
+[ext_resource path="res://asset/sgommata.2.png" type="Texture" id=4]
+[ext_resource path="res://Johnny_Camera2D.tscn" type="PackedScene" id=5]
+[ext_resource path="res://animations/hit.tres" type="SpriteFrames" id=6]
+[ext_resource path="res://asset/kiai.png" type="Texture" id=7]
+
+[sub_resource type="SegmentShape2D" id=1]
+b = Vector2( 20, 0 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4.33983, 25.4968 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 3.04909, 18.3646 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 3.62956, 15.7285 )
+
+[sub_resource type="SegmentShape2D" id=5]
+b = Vector2( 15, 0 )
+
+[sub_resource type="SegmentShape2D" id=6]
+a = Vector2( 5.41026, 2.875 )
+b = Vector2( -25.6111, 9.95489 )
+
+[sub_resource type="SegmentShape2D" id=7]
+a = Vector2( 24.2388, -0.43759 )
+b = Vector2( -22.3862, 3.68741 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ null, ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), null ],
+"loop": false,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 7.17108, 2.13108 )
+
+[node name="player" type="KinematicBody2D" groups=[
+"camera_shaker",
+"player",
+]]
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.194859, 0.105112 )
+frames = ExtResource( 2 )
+animation = "cranekick"
+
+[node name="jab" type="Area2D" parent="AnimatedSprite"]
+position = Vector2( 0, -12 )
+collision_mask = 2
+
+[node name="jab" type="CollisionShape2D" parent="AnimatedSprite/jab"]
+position = Vector2( 0, 4 )
+shape = SubResource( 1 )
+
+[node name="sweep" type="Area2D" parent="AnimatedSprite"]
+position = Vector2( 23, 0 )
+
+[node name="c" type="CollisionShape2D" parent="AnimatedSprite/sweep"]
+shape = SubResource( 2 )
+
+[node name="uppercut" type="Area2D" parent="AnimatedSprite"]
+position = Vector2( 10, 0 )
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite/uppercut"]
+position = Vector2( 3, -3 )
+shape = SubResource( 3 )
+
+[node name="cranekick" type="Area2D" parent="AnimatedSprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite/cranekick"]
+position = Vector2( 16, -5 )
+shape = SubResource( 4 )
+
+[node name="raw" type="Area2D" parent="AnimatedSprite"]
+collision_mask = 2
+
+[node name="raw" type="CollisionShape2D" parent="AnimatedSprite/raw"]
+position = Vector2( 10, -8 )
+shape = SubResource( 5 )
+
+[node name="kick" type="Area2D" parent="AnimatedSprite"]
+position = Vector2( 11, -12 )
+collision_mask = 2
+
+[node name="kick" type="CollisionShape2D" parent="AnimatedSprite/kick"]
+position = Vector2( 3, -1 )
+shape = SubResource( 6 )
+
+[node name="backkick" type="Area2D" parent="AnimatedSprite"]
+position = Vector2( 11, -12 )
+collision_mask = 2
+
+[node name="backkick" type="CollisionShape2D" parent="AnimatedSprite/backkick"]
+position = Vector2( 6, 4 )
+shape = SubResource( 6 )
+
+[node name="hit" type="Area2D" parent="AnimatedSprite"]
+collision_layer = 2
+collision_mask = 3
+
+[node name="hit" type="CollisionPolygon2D" parent="AnimatedSprite/hit"]
+position = Vector2( 0, -8 )
+polygon = PoolVector2Array( -0.274734, -11.8398, -5.02968, -8.36993, -7.98545, -0.787731, -6.05778, 7.43703, -2.97349, 14.3767, 5.12276, 14.6337, 7.693, 7.56555, 8.20705, -1.94434, 5.12276, -9.65505 )
+
+[node name="backfist" type="Area2D" parent="AnimatedSprite"]
+position = Vector2( -1, -3 )
+collision_mask = 2
+
+[node name="backfist" type="CollisionShape2D" parent="AnimatedSprite/backfist"]
+position = Vector2( 1.67144, -0.43741 )
+shape = SubResource( 7 )
+
+[node name="sgommata" type="AnimatedSprite" parent="AnimatedSprite"]
+position = Vector2( 10, 17 )
+frames = SubResource( 8 )
+frame = 1
+
+[node name="pos_sgommata_l" type="Position2D" parent="AnimatedSprite"]
+position = Vector2( -13, 17 )
+
+[node name="pos_sgommata_r" type="Position2D" parent="AnimatedSprite"]
+position = Vector2( 13, 17 )
+
+[node name="kiai" type="AnimatedSprite" parent="."]
+position = Vector2( 13, -15 )
+frames = SubResource( 9 )
+
+[node name="hit_sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 7, -4 )
+frames = ExtResource( 6 )
+
+[node name="Camera2D" parent="." groups=[
+"pausable",
+] instance=ExtResource( 5 )]
+offset = Vector2( 0, -24 )
+
+[node name="c" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 20 )
+shape = SubResource( 10 )
+
+[node name="walk" type="Area2D" parent="."]
+position = Vector2( 0, 20 )
+collision_layer = 5
+collision_mask = 5
+
+[node name="walk" type="CollisionShape2D" parent="walk"]
+shape = SubResource( 10 )
+
+[node name="effect" type="AudioStreamPlayer" parent="."]
+
+[node name="effect_swish" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+
+[node name="effect_defeat" type="AudioStreamPlayer" parent="."]
+
+[node name="timer_blink" type="Timer" parent="."]
+wait_time = 0.16
+
+[node name="timer_blinker" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="pos_police_car" type="Position2D" parent="."]
+position = Vector2( -191, 16 )
+
+[node name="pos_police_man" type="Position2D" parent="."]
+position = Vector2( -22, 1 )
+
+[node name="timer_updown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="timer_combo" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="timer_input_freq" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="timer_no_actions" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="timer_dash" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
+[connection signal="animation_finished" from="AnimatedSprite/sgommata" to="." method="_on_sgommata_animation_finished"]
+[connection signal="timeout" from="timer_blink" to="." method="_on_blink_timeout"]
+[connection signal="timeout" from="timer_blinker" to="." method="_on_blinker_timeout"]
+[connection signal="timeout" from="timer_combo" to="." method="_on_timer_combo_timeout"]
+[connection signal="timeout" from="timer_dash" to="." method="_on_timer_dash_timeout"]

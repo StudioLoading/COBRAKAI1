@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/title_lingua.ogg-670396e7d737be58e175e280b699622e.oggstr"
+
+[deps]
+
+source_file="res://sound/effects/title_lingua.ogg"
+dest_files=[ "res://.import/title_lingua.ogg-670396e7d737be58e175e280b699622e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

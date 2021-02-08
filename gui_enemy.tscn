@@ -1,0 +1,137 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://asset/GUI/hp.png" type="Texture" id=2]
+[ext_resource path="res://asset/GUI/highschool/logo.png" type="Texture" id=3]
+[ext_resource path="res://asset/GUI/Johnny_Icon_Normal.png" type="Texture" id=4]
+
+[node name="enemy" type="HBoxContainer"]
+margin_left = 403.0
+margin_top = 14.0
+margin_right = 499.0
+margin_bottom = 37.0
+custom_constants/separation = 4
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hp" type="HBoxContainer" parent="."]
+margin_right = 64.0
+margin_bottom = 36.0
+grow_horizontal = 0
+custom_constants/separation = 1
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hp0" type="TextureRect" parent="hp"]
+margin_right = 4.0
+margin_bottom = 36.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="hp1" type="TextureRect" parent="hp"]
+margin_left = 5.0
+margin_right = 9.0
+margin_bottom = 36.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="hp2" type="TextureRect" parent="hp"]
+margin_left = 10.0
+margin_right = 14.0
+margin_bottom = 36.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="hp3" type="TextureRect" parent="hp"]
+margin_left = 15.0
+margin_right = 19.0
+margin_bottom = 36.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="hp4" type="TextureRect" parent="hp"]
+margin_left = 20.0
+margin_right = 24.0
+margin_bottom = 36.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="hp5" type="TextureRect" parent="hp"]
+margin_left = 25.0
+margin_right = 29.0
+margin_bottom = 36.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="hp6" type="TextureRect" parent="hp"]
+margin_left = 30.0
+margin_right = 34.0
+margin_bottom = 36.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="hp7" type="TextureRect" parent="hp"]
+margin_left = 35.0
+margin_right = 39.0
+margin_bottom = 36.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="hp8" type="TextureRect" parent="hp"]
+margin_left = 40.0
+margin_right = 44.0
+margin_bottom = 36.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="hp9" type="TextureRect" parent="hp"]
+margin_left = 45.0
+margin_right = 49.0
+margin_bottom = 36.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="hp10" type="TextureRect" parent="hp"]
+margin_left = 50.0
+margin_right = 54.0
+margin_bottom = 36.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="hp11" type="TextureRect" parent="hp"]
+margin_left = 55.0
+margin_right = 59.0
+margin_bottom = 36.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="hp12" type="TextureRect" parent="hp"]
+margin_left = 60.0
+margin_right = 64.0
+margin_bottom = 36.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="dojo" type="TextureRect" parent="."]
+margin_left = 68.0
+margin_right = 100.0
+margin_bottom = 36.0
+texture = ExtResource( 3 )
+
+[node name="face" type="TextureRect" parent="dojo"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.5
+margin_top = -1.99449
+margin_right = 8.5
+margin_bottom = 16.0055
+texture = ExtResource( 4 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}

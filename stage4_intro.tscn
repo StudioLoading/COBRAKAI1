@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/stage4_intro.gd" type="Script" id=1]
+[ext_resource path="res://stage_father.tscn" type="PackedScene" id=2]
+[ext_resource path="res://asset/stage2/bg.png" type="Texture" id=3]
+[ext_resource path="res://animations/Johnny_gi.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://animations/Miguel.tres" type="SpriteFrames" id=5]
+
+[node name="stage" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+
+[node name="ColorRect" parent="." index="1"]
+visible = true
+margin_left = -175.0
+margin_top = -145.0
+margin_right = 719.0
+margin_bottom = 421.0
+
+[node name="env" type="Node2D" parent="." index="2"]
+
+[node name="bg" type="Sprite" parent="env" index="0"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="exit" type="Position2D" parent="env" index="1"]
+position = Vector2( 50, 310 )
+
+[node name="johnny" type="AnimatedSprite" parent="YSort" index="2"]
+position = Vector2( 136.127, 154.661 )
+frames = ExtResource( 4 )
+
+[node name="miguel" type="AnimatedSprite" parent="YSort" index="3"]
+position = Vector2( 50, 302 )
+frames = ExtResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="12"]
+anchor_mode = 0
+current = true
+
+[node name="Tween" type="Tween" parent="." index="13"]
+
+[node name="a" parent="p_exit" index="1"]
+frame = 1

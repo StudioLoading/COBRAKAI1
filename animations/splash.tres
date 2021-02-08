@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=2]
+
+[ext_resource path="res://asset/stage3/splash/1.png" type="Texture" id=1]
+[ext_resource path="res://asset/stage3/splash/2.png" type="Texture" id=2]
+[ext_resource path="res://asset/stage3/splash/3.png" type="Texture" id=3]
+[ext_resource path="res://asset/stage3/splash/4.png" type="Texture" id=4]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]

@@ -1,0 +1,381 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://scripts/gui_player.gd" type="Script" id=1]
+[ext_resource path="res://font.gui.tres" type="DynamicFont" id=2]
+[ext_resource path="res://asset/GUI/cobra/logo.png" type="Texture" id=3]
+[ext_resource path="res://asset/GUI/cobra/Miguel_normal.png" type="Texture" id=4]
+[ext_resource path="res://asset/GUI/hp.label.png" type="Texture" id=5]
+[ext_resource path="res://asset/GUI/hp.png" type="Texture" id=6]
+[ext_resource path="res://asset/GUI/combo/combo.bar.empty.png" type="Texture" id=7]
+[ext_resource path="res://asset/GUI/combo/combo.covered.png" type="Texture" id=8]
+[ext_resource path="res://asset/GUI/combo/combo.bar.cursor.png" type="Texture" id=10]
+[ext_resource path="res://gui_time.tscn" type="PackedScene" id=11]
+[ext_resource path="res://gui_breath.tscn" type="PackedScene" id=12]
+[ext_resource path="res://gui_controller.tscn" type="PackedScene" id=13]
+[ext_resource path="res://asset/GUI/combo/combo.label.png" type="Texture" id=14]
+[ext_resource path="res://asset/GUI/lives.label.png" type="Texture" id=16]
+[ext_resource path="res://asset/GUI/score.label.png" type="Texture" id=17]
+[ext_resource path="res://asset/GUI/combo/btn.punch_o.png" type="Texture" id=18]
+
+[node name="player" type="Control"]
+anchor_top = 0.000821173
+anchor_right = 1.0
+anchor_bottom = 1.00082
+margin_left = 0.263519
+margin_top = -0.366455
+margin_right = 0.26355
+margin_bottom = -0.366455
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="u" type="ColorRect" parent="."]
+margin_right = 512.0
+margin_bottom = 41.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="d" type="ColorRect" parent="."]
+visible = false
+margin_left = 157.0
+margin_top = 218.0
+margin_right = 351.0
+margin_bottom = 255.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="h_up" type="HBoxContainer" parent="."]
+margin_left = 4.0
+margin_top = 1.0
+margin_right = 139.0
+margin_bottom = 39.0
+custom_constants/separation = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player_logo" type="TextureRect" parent="h_up"]
+margin_right = 32.0
+margin_bottom = 38.0
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="face" type="TextureRect" parent="h_up/player_logo"]
+margin_left = 8.0
+margin_top = 13.0
+margin_right = 25.0
+margin_bottom = 35.0
+texture = ExtResource( 4 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score_life" type="VBoxContainer" parent="h_up"]
+margin_left = 38.0
+margin_right = 158.0
+margin_bottom = 38.0
+
+[node name="life" type="HBoxContainer" parent="h_up/score_life"]
+margin_right = 120.0
+margin_bottom = 27.0
+custom_constants/separation = 3
+alignment = 1
+
+[node name="grid" type="GridContainer" parent="h_up/score_life/life"]
+margin_right = 120.0
+margin_bottom = 27.0
+custom_constants/vseparation = 3
+columns = 3
+
+[node name="score" type="TextureRect" parent="h_up/score_life/life/grid"]
+margin_right = 24.0
+margin_bottom = 12.0
+texture = ExtResource( 17 )
+stretch_mode = 4
+
+[node name="score_points" type="Label" parent="h_up/score_life/life/grid"]
+margin_left = 28.0
+margin_right = 92.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "00000000"
+valign = 1
+
+[node name="beerx" type="TextureRect" parent="h_up/score_life/life/grid"]
+margin_left = 96.0
+margin_right = 120.0
+margin_bottom = 12.0
+texture = ExtResource( 16 )
+stretch_mode = 6
+
+[node name="lifebar" type="TextureRect" parent="h_up/score_life/life/grid"]
+margin_top = 15.0
+margin_right = 24.0
+margin_bottom = 27.0
+texture = ExtResource( 5 )
+stretch_mode = 4
+
+[node name="hp" type="HBoxContainer" parent="h_up/score_life/life/grid"]
+margin_left = 28.0
+margin_top = 15.0
+margin_right = 92.0
+margin_bottom = 27.0
+custom_constants/separation = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hp1" type="TextureRect" parent="h_up/score_life/life/grid/hp"]
+margin_right = 4.0
+margin_bottom = 12.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="hp2" type="TextureRect" parent="h_up/score_life/life/grid/hp"]
+margin_left = 5.0
+margin_right = 9.0
+margin_bottom = 12.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="hp3" type="TextureRect" parent="h_up/score_life/life/grid/hp"]
+margin_left = 10.0
+margin_right = 14.0
+margin_bottom = 12.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="hp4" type="TextureRect" parent="h_up/score_life/life/grid/hp"]
+margin_left = 15.0
+margin_right = 19.0
+margin_bottom = 12.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="hp5" type="TextureRect" parent="h_up/score_life/life/grid/hp"]
+margin_left = 20.0
+margin_right = 24.0
+margin_bottom = 12.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="hp6" type="TextureRect" parent="h_up/score_life/life/grid/hp"]
+margin_left = 25.0
+margin_right = 29.0
+margin_bottom = 12.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="hp7" type="TextureRect" parent="h_up/score_life/life/grid/hp"]
+margin_left = 30.0
+margin_right = 34.0
+margin_bottom = 12.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="hp8" type="TextureRect" parent="h_up/score_life/life/grid/hp"]
+margin_left = 35.0
+margin_right = 39.0
+margin_bottom = 12.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="hp9" type="TextureRect" parent="h_up/score_life/life/grid/hp"]
+margin_left = 40.0
+margin_right = 44.0
+margin_bottom = 12.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="hp10" type="TextureRect" parent="h_up/score_life/life/grid/hp"]
+margin_left = 45.0
+margin_right = 49.0
+margin_bottom = 12.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="hp11" type="TextureRect" parent="h_up/score_life/life/grid/hp"]
+margin_left = 50.0
+margin_right = 54.0
+margin_bottom = 12.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="hp12" type="TextureRect" parent="h_up/score_life/life/grid/hp"]
+margin_left = 55.0
+margin_right = 59.0
+margin_bottom = 12.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="beerxn" type="Label" parent="h_up/score_life/life/grid"]
+margin_left = 96.0
+margin_top = 15.0
+margin_right = 120.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 2 )
+text = "01"
+align = 1
+
+[node name="h_down" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -104.0
+margin_top = -48.0
+margin_right = -38.0
+margin_bottom = -27.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="TextureRect" parent="h_down"]
+visible = false
+anchor_top = 1.7619
+anchor_bottom = 1.7619
+margin_right = 19.0
+margin_bottom = 21.0
+texture = ExtResource( 14 )
+stretch_mode = 5
+
+[node name="cursor" type="TextureRect" parent="h_down"]
+margin_left = 32.0
+margin_top = 12.0
+margin_right = 64.0
+margin_bottom = 44.0
+texture = ExtResource( 10 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="c" type="VBoxContainer" parent="h_down"]
+margin_left = 14.0
+margin_right = 190.0
+margin_bottom = 44.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btns" type="HBoxContainer" parent="h_down/c"]
+margin_right = 176.0
+margin_bottom = 8.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_1" type="TextureRect" parent="h_down/c/btns"]
+margin_left = 64.0
+margin_right = 73.0
+margin_bottom = 8.0
+texture = ExtResource( 18 )
+stretch_mode = 4
+
+[node name="btn_2" type="TextureRect" parent="h_down/c/btns"]
+margin_left = 77.0
+margin_right = 86.0
+margin_bottom = 8.0
+texture = ExtResource( 18 )
+stretch_mode = 4
+
+[node name="btn_3" type="TextureRect" parent="h_down/c/btns"]
+margin_left = 90.0
+margin_right = 99.0
+margin_bottom = 8.0
+texture = ExtResource( 18 )
+stretch_mode = 4
+
+[node name="btn_4" type="TextureRect" parent="h_down/c/btns"]
+margin_left = 103.0
+margin_right = 112.0
+margin_bottom = 8.0
+texture = ExtResource( 18 )
+stretch_mode = 4
+
+[node name="c" type="HBoxContainer" parent="h_down/c"]
+margin_top = 12.0
+margin_right = 176.0
+margin_bottom = 44.0
+custom_constants/separation = 4
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="combo0" type="TextureRect" parent="h_down/c/c"]
+margin_left = 18.0
+margin_right = 50.0
+margin_bottom = 32.0
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="p" type="Position2D" parent="h_down/c/c/combo0"]
+
+[node name="combo1" type="TextureRect" parent="h_down/c/c"]
+margin_left = 54.0
+margin_right = 86.0
+margin_bottom = 32.0
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="p" type="Position2D" parent="h_down/c/c/combo1"]
+
+[node name="combo2" type="TextureRect" parent="h_down/c/c"]
+margin_left = 90.0
+margin_right = 122.0
+margin_bottom = 32.0
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="p" type="Position2D" parent="h_down/c/c/combo2"]
+
+[node name="combo3" type="TextureRect" parent="h_down/c/c"]
+margin_left = 126.0
+margin_right = 158.0
+margin_bottom = 32.0
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="p" type="Position2D" parent="h_down/c/c/combo3"]
+
+[node name="t" type="TextureRect" parent="h_down/c"]
+visible = false
+margin_top = 48.0
+margin_right = 200.0
+margin_bottom = 98.0
+texture = ExtResource( 7 )
+stretch_mode = 4
+
+[node name="efx" type="AudioStreamPlayer" parent="."]
+
+[node name="efx2" type="AudioStreamPlayer" parent="."]
+
+[node name="time" parent="." instance=ExtResource( 11 )]
+margin_left = -27.751
+margin_right = 28.249
+margin_bottom = 42.9416
+
+[node name="f" parent="." instance=ExtResource( 12 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 42.0
+margin_top = 30.0
+margin_right = 128.0
+margin_bottom = 38.0
+
+[node name="controller" parent="." instance=ExtResource( 13 )]
+margin_left = 188.759
+margin_top = 7.29259
+margin_right = 229.759
+margin_bottom = 24.2926
